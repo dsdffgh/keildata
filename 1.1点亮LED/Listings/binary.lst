@@ -1,0 +1,109 @@
+C51 COMPILER V9.60.7.0   BINARY                                                            01/08/2023 16:41:43 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE BINARY
+OBJECT MODULE PLACED IN .\Objects\binary.obj
+COMPILER INVOKED BY: z:\buyaobilian\Keil_v5\C51\BIN\C51.EXE binary.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\binary.lst) TABS(2) OBJECT(.\Objects\binary.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          void Delay(int x)   //@12.000MHz
+   4          {
+   5   1        unsigned char i, j;
+   6   1      
+   7   1        i = 2;
+   8   1        j = 239;
+   9   1        do
+  10   1          {
+  11   2            do
+  12   2            {
+  13   3              while (--j);
+  14   3            } while (--i);
+  15   2          }while(--x);
+  16   1      }
+  17          
+  18          #if 0
+              void main()
+              {
+                while(1)
+                {
+                  if(P3_1 == 0)
+                  {
+                    Delay(10);
+                    while(P3_1 == 0)
+                      ;
+                    Delay(10);
+                    
+                    //1111 1111
+                    P2++;//初始都是高电平为0xff，加1后溢出变0x00,所以灯全亮了
+                    //0000 0000
+                    
+                    Delay(5);//所以闪得很暗，加个延迟就行了
+                    
+                    P2 = ~P2;
+                    //1111 1111
+                  }
+                }
+              }
+              #endif
+  42          
+  43          #if 0
+              void main()
+              {
+                while(1)
+                {
+                  if(P3_1 == 0)
+                  {
+                    Delay(10);
+                    while(P3_1 == 0)
+                      ;
+                    Delay(10);
+                    
+C51 COMPILER V9.60.7.0   BINARY                                                            01/08/2023 16:41:43 PAGE 2   
+
+                    //1111 1111
+                    P2--;//初始都是高电平为0xff，加1后溢出变0x00,所以灯全亮了
+                    
+                  }
+                }
+              }
+              #endif
+  62          
+  63          #if 1
+  64          void main()
+  65          {
+  66   1        unsigned char LEDnum = 0;
+  67   1        while(1)
+  68   1        {
+  69   2          if(P3_1 == 0)
+  70   2          {
+  71   3            Delay(10);
+  72   3            while(P3_1 == 0)
+  73   3              ;
+  74   3            Delay(10);
+  75   3            
+  76   3            //1111 1111
+  77   3            LEDnum++;//初始都是高电平为0xff，加1后溢出变0x00,所以灯全亮了
+  78   3            P2 = ~LEDnum;
+  79   3            //1111 1111
+  80   3          }
+  81   2        }
+  82   1      }
+  83          #endif
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     47    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\shift.obj" 
+TO ".\Objects\按键控制LED移位" 
+PRINT(".\Listings\按键控制LED移位.m51") RAMSIZE(256) 

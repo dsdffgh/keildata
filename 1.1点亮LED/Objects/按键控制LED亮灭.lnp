@@ -1,0 +1,3 @@
+".\Objects\control.obj" 
+TO ".\Objects\按键控制LED亮灭" 
+PRINT(".\Listings\按键控制LED亮灭.m51") RAMSIZE(256) 

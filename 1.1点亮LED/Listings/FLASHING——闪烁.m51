@@ -1,0 +1,94 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/03/2023  11:05:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+Z:\BUYAOBILIAN\KEIL_V5\C51\BIN\BL51.EXE .\Objects\flashing.obj TO .\Objects\FLASHING¡ª¡ªÉÁË¸ PRINT (.\Listings\FLASHING¡
+>> ª¡ªÉÁË¸.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\flashing.obj (FLASHING)
+  Z:\BUYAOBILIAN\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\FLASHING¡ª¡ªÉÁË¸ (FLASHING)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000EH     UNIT         ?PR?DELAY1000MS?FLASHING
+            CODE    0011H     000EH     UNIT         ?PR?MAIN?FLASHING
+            CODE    001FH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\FLASHING¡ª¡ªÉÁË¸ (FLASHING)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?FLASHING
+
+?PR?MAIN?FLASHING
+  +--> ?PR?DELAY1000MS?FLASHING
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\FLASHING¡ª¡ªÉÁË¸ (FLASHING)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        FLASHING
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0003H         PUBLIC        Delay1000ms
+  C:0011H         PUBLIC        main
+  -------         PROC          DELAY1000MS
+  -------         DO            
+  D:0007H         SYMBOL        i
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/03/2023  11:05:35  PAGE 2
+
+
+  D:0006H         SYMBOL        j
+  D:0005H         SYMBOL        k
+  -------         ENDDO         
+  C:0003H         LINE#         3
+  C:0003H         LINE#         4
+  C:0003H         LINE#         7
+  C:0004H         LINE#         8
+  C:0006H         LINE#         9
+  C:0008H         LINE#         10
+  C:000AH         LINE#         12
+  C:000AH         LINE#         14
+  C:000AH         LINE#         15
+  C:000CH         LINE#         16
+  C:000EH         LINE#         17
+  C:0010H         LINE#         18
+  -------         ENDPROC       DELAY1000MS
+  -------         PROC          MAIN
+  C:0011H         LINE#         23
+  C:0011H         LINE#         24
+  C:0011H         LINE#         27
+  C:0011H         LINE#         29
+  C:0014H         LINE#         30
+  C:0017H         LINE#         31
+  C:001AH         LINE#         32
+  C:001DH         LINE#         33
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        FLASHING
+
+Program Size: data=9.0 xdata=0 code=43
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

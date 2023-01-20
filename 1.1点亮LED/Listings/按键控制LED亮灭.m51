@@ -1,0 +1,75 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/08/2023  15:35:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+Z:\BUYAOBILIAN\KEIL_V5\C51\BIN\BL51.EXE .\Objects\control.obj TO .\Objects\°´¼ü¿ØÖÆLEDÁÁÃð PRINT (.\Listings\°´¼ü¿ØÖÆLED
+>> ÁÁÃð.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\control.obj (CONTROL)
+  Z:\BUYAOBILIAN\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\°´¼ü¿ØÖÆLEDÁÁÃð (CONTROL)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000CH     UNIT         ?C_C51STARTUP
+            CODE    000FH     000BH     UNIT         ?PR?MAIN?CONTROL
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\°´¼ü¿ØÖÆLEDÁÁÃð (CONTROL)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?CONTROL
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\°´¼ü¿ØÖÆLEDÁÁÃð (CONTROL)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CONTROL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A0H.0       PUBLIC        P2_0
+  B:00B0H.1       PUBLIC        P3_1
+  C:000FH         PUBLIC        main
+  -------         PROC          MAIN
+  C:000FH         LINE#         20
+  C:000FH         LINE#         21
+  C:000FH         LINE#         22
+  C:0012H         LINE#         23
+  C:0012H         LINE#         24
+  C:0014H         LINE#         25
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/08/2023  15:35:20  PAGE 2
+
+
+  C:0016H         LINE#         26
+  C:0016H         LINE#         27
+  C:0018H         LINE#         28
+  C:0018H         LINE#         29
+  C:0018H         LINE#         30
+  C:0018H         LINE#         32
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        CONTROL
+
+Program Size: data=9.0 xdata=0 code=26
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

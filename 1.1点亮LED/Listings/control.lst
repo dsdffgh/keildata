@@ -1,0 +1,287 @@
+C51 COMPILER V9.60.7.0   CONTROL                                                           01/08/2023 15:32:52 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE CONTROL
+OBJECT MODULE PLACED IN .\Objects\control.obj
+COMPILER INVOKED BY: z:\buyaobilian\Keil_v5\C51\BIN\C51.EXE control.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND LISTIN
+                    -CLUDE PRINT(.\Listings\control.lst) TABS(2) OBJECT(.\Objects\control.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   1      =1  /*--------------------------------------------------------------------------
+   2      =1  AT89X52.H
+   3      =1  
+   4      =1  Header file for the low voltage Flash Atmel AT89C52 and AT89LV52.
+   5      =1  Copyright (c) 1988-2002 Keil Elektronik GmbH and Keil Software, Inc.
+   6      =1  All rights reserved.
+   7      =1  --------------------------------------------------------------------------*/
+   8      =1  
+   9      =1  #ifndef __AT89X52_H__
+  10      =1  #define __AT89X52_H__
+  11      =1  
+  12      =1  /*------------------------------------------------
+  13      =1  Byte Registers
+  14      =1  ------------------------------------------------*/
+  15      =1  sfr P0      = 0x80;
+  16      =1  sfr SP      = 0x81;
+  17      =1  sfr DPL     = 0x82;
+  18      =1  sfr DPH     = 0x83;
+  19      =1  sfr PCON    = 0x87;
+  20      =1  sfr TCON    = 0x88;
+  21      =1  sfr TMOD    = 0x89;
+  22      =1  sfr TL0     = 0x8A;
+  23      =1  sfr TL1     = 0x8B;
+  24      =1  sfr TH0     = 0x8C;
+  25      =1  sfr TH1     = 0x8D;
+  26      =1  sfr P1      = 0x90;
+  27      =1  sfr SCON    = 0x98;
+  28      =1  sfr SBUF    = 0x99;
+  29      =1  sfr P2      = 0xA0;
+  30      =1  sfr IE      = 0xA8;
+  31      =1  sfr P3      = 0xB0;
+  32      =1  sfr IP      = 0xB8;
+  33      =1  sfr T2CON   = 0xC8;
+  34      =1  sfr T2MOD   = 0xC9;
+  35      =1  sfr RCAP2L  = 0xCA;
+  36      =1  sfr RCAP2H  = 0xCB;
+  37      =1  sfr TL2     = 0xCC;
+  38      =1  sfr TH2     = 0xCD;
+  39      =1  sfr PSW     = 0xD0;
+  40      =1  sfr ACC     = 0xE0;
+  41      =1  sfr B       = 0xF0;
+  42      =1  
+  43      =1  /*------------------------------------------------
+  44      =1  P0 Bit Registers
+  45      =1  ------------------------------------------------*/
+  46      =1  sbit P0_0 = 0x80;
+  47      =1  sbit P0_1 = 0x81;
+  48      =1  sbit P0_2 = 0x82;
+  49      =1  sbit P0_3 = 0x83;
+  50      =1  sbit P0_4 = 0x84;
+  51      =1  sbit P0_5 = 0x85;
+  52      =1  sbit P0_6 = 0x86;
+  53      =1  sbit P0_7 = 0x87;
+C51 COMPILER V9.60.7.0   CONTROL                                                           01/08/2023 15:32:52 PAGE 2   
+
+  54      =1  
+  55      =1  /*------------------------------------------------
+  56      =1  PCON Bit Values
+  57      =1  ------------------------------------------------*/
+  58      =1  #define IDL_    0x01
+  59      =1  
+  60      =1  #define STOP_   0x02
+  61      =1  #define PD_     0x02    /* Alternate definition */
+  62      =1  
+  63      =1  #define GF0_    0x04
+  64      =1  #define GF1_    0x08
+  65      =1  #define SMOD_   0x80
+  66      =1  
+  67      =1  /*------------------------------------------------
+  68      =1  TCON Bit Registers
+  69      =1  ------------------------------------------------*/
+  70      =1  sbit IT0  = 0x88;
+  71      =1  sbit IE0  = 0x89;
+  72      =1  sbit IT1  = 0x8A;
+  73      =1  sbit IE1  = 0x8B;
+  74      =1  sbit TR0  = 0x8C;
+  75      =1  sbit TF0  = 0x8D;
+  76      =1  sbit TR1  = 0x8E;
+  77      =1  sbit TF1  = 0x8F;
+  78      =1  
+  79      =1  /*------------------------------------------------
+  80      =1  TMOD Bit Values
+  81      =1  ------------------------------------------------*/
+  82      =1  #define T0_M0_   0x01
+  83      =1  #define T0_M1_   0x02
+  84      =1  #define T0_CT_   0x04
+  85      =1  #define T0_GATE_ 0x08
+  86      =1  #define T1_M0_   0x10
+  87      =1  #define T1_M1_   0x20
+  88      =1  #define T1_CT_   0x40
+  89      =1  #define T1_GATE_ 0x80
+  90      =1  
+  91      =1  #define T1_MASK_ 0xF0
+  92      =1  #define T0_MASK_ 0x0F
+  93      =1  
+  94      =1  /*------------------------------------------------
+  95      =1  P1 Bit Registers
+  96      =1  ------------------------------------------------*/
+  97      =1  sbit P1_0 = 0x90;
+  98      =1  sbit P1_1 = 0x91;
+  99      =1  sbit P1_2 = 0x92;
+ 100      =1  sbit P1_3 = 0x93;
+ 101      =1  sbit P1_4 = 0x94;
+ 102      =1  sbit P1_5 = 0x95;
+ 103      =1  sbit P1_6 = 0x96;
+ 104      =1  sbit P1_7 = 0x97;
+ 105      =1  
+ 106      =1  sbit T2   = 0x90;       /* External input to Timer/Counter 2, clock out */
+ 107      =1  sbit T2EX = 0x91;       /* Timer/Counter 2 capture/reload trigger & dir ctl */
+ 108      =1  
+ 109      =1  /*------------------------------------------------
+ 110      =1  SCON Bit Registers
+ 111      =1  ------------------------------------------------*/
+ 112      =1  sbit RI   = 0x98;
+ 113      =1  sbit TI   = 0x99;
+ 114      =1  sbit RB8  = 0x9A;
+ 115      =1  sbit TB8  = 0x9B;
+C51 COMPILER V9.60.7.0   CONTROL                                                           01/08/2023 15:32:52 PAGE 3   
+
+ 116      =1  sbit REN  = 0x9C;
+ 117      =1  sbit SM2  = 0x9D;
+ 118      =1  sbit SM1  = 0x9E;
+ 119      =1  sbit SM0  = 0x9F;
+ 120      =1  
+ 121      =1  /*------------------------------------------------
+ 122      =1  P2 Bit Registers
+ 123      =1  ------------------------------------------------*/
+ 124      =1  sbit P2_0 = 0xA0;
+ 125      =1  sbit P2_1 = 0xA1;
+ 126      =1  sbit P2_2 = 0xA2;
+ 127      =1  sbit P2_3 = 0xA3;
+ 128      =1  sbit P2_4 = 0xA4;
+ 129      =1  sbit P2_5 = 0xA5;
+ 130      =1  sbit P2_6 = 0xA6;
+ 131      =1  sbit P2_7 = 0xA7;
+ 132      =1  
+ 133      =1  /*------------------------------------------------
+ 134      =1  IE Bit Registers
+ 135      =1  ------------------------------------------------*/
+ 136      =1  sbit EX0  = 0xA8;       /* 1=Enable External interrupt 0 */
+ 137      =1  sbit ET0  = 0xA9;       /* 1=Enable Timer 0 interrupt */
+ 138      =1  sbit EX1  = 0xAA;       /* 1=Enable External interrupt 1 */
+ 139      =1  sbit ET1  = 0xAB;       /* 1=Enable Timer 1 interrupt */
+ 140      =1  sbit ES   = 0xAC;       /* 1=Enable Serial port interrupt */
+ 141      =1  sbit ET2  = 0xAD;       /* 1=Enable Timer 2 interrupt */
+ 142      =1  
+ 143      =1  sbit EA   = 0xAF;       /* 0=Disable all interrupts */
+ 144      =1  
+ 145      =1  /*------------------------------------------------
+ 146      =1  P3 Bit Registers (Mnemonics & Ports)
+ 147      =1  ------------------------------------------------*/
+ 148      =1  sbit P3_0 = 0xB0;
+ 149      =1  sbit P3_1 = 0xB1;
+ 150      =1  sbit P3_2 = 0xB2;
+ 151      =1  sbit P3_3 = 0xB3;
+ 152      =1  sbit P3_4 = 0xB4;
+ 153      =1  sbit P3_5 = 0xB5;
+ 154      =1  sbit P3_6 = 0xB6;
+ 155      =1  sbit P3_7 = 0xB7;
+ 156      =1  
+ 157      =1  sbit RXD  = 0xB0;       /* Serial data input */
+ 158      =1  sbit TXD  = 0xB1;       /* Serial data output */
+ 159      =1  sbit INT0 = 0xB2;       /* External interrupt 0 */
+ 160      =1  sbit INT1 = 0xB3;       /* External interrupt 1 */
+ 161      =1  sbit T0   = 0xB4;       /* Timer 0 external input */
+ 162      =1  sbit T1   = 0xB5;       /* Timer 1 external input */
+ 163      =1  sbit WR   = 0xB6;       /* External data memory write strobe */
+ 164      =1  sbit RD   = 0xB7;       /* External data memory read strobe */
+ 165      =1  
+ 166      =1  /*------------------------------------------------
+ 167      =1  IP Bit Registers
+ 168      =1  ------------------------------------------------*/
+ 169      =1  sbit PX0  = 0xB8;
+ 170      =1  sbit PT0  = 0xB9;
+ 171      =1  sbit PX1  = 0xBA;
+ 172      =1  sbit PT1  = 0xBB;
+ 173      =1  sbit PS   = 0xBC;
+ 174      =1  sbit PT2  = 0xBD;
+ 175      =1  
+ 176      =1  /*------------------------------------------------
+ 177      =1  T2CON Bit Registers
+C51 COMPILER V9.60.7.0   CONTROL                                                           01/08/2023 15:32:52 PAGE 4   
+
+ 178      =1  ------------------------------------------------*/
+ 179      =1  sbit CP_RL2= 0xC8;      /* 0=Reload, 1=Capture select */
+ 180      =1  sbit C_T2 = 0xC9;       /* 0=Timer, 1=Counter */
+ 181      =1  sbit TR2  = 0xCA;       /* 0=Stop timer, 1=Start timer */
+ 182      =1  sbit EXEN2= 0xCB;       /* Timer 2 external enable */
+ 183      =1  sbit TCLK = 0xCC;       /* 0=Serial clock uses Timer 1 overflow, 1=Timer 2 */
+ 184      =1  sbit RCLK = 0xCD;       /* 0=Serial clock uses Timer 1 overflow, 1=Timer 2 */
+ 185      =1  sbit EXF2 = 0xCE;       /* Timer 2 external flag */
+ 186      =1  sbit TF2  = 0xCF;       /* Timer 2 overflow flag */
+ 187      =1  
+ 188      =1  /*------------------------------------------------
+ 189      =1  T2MOD Bit Values
+ 190      =1  ------------------------------------------------*/
+ 191      =1  #define DCEN_   0x01    /* 1=Timer 2 can be configured as up/down counter */
+ 192      =1  #define T2OE_   0x02    /* Timer 2 output enable */
+ 193      =1  
+ 194      =1  /*------------------------------------------------
+ 195      =1  PSW Bit Registers
+ 196      =1  ------------------------------------------------*/
+ 197      =1  sbit P    = 0xD0;
+ 198      =1  sbit F1   = 0xD1;
+ 199      =1  sbit OV   = 0xD2;
+ 200      =1  sbit RS0  = 0xD3;
+ 201      =1  sbit RS1  = 0xD4;
+ 202      =1  sbit F0   = 0xD5;
+ 203      =1  sbit AC   = 0xD6;
+ 204      =1  sbit CY   = 0xD7;
+ 205      =1  
+ 206      =1  /*------------------------------------------------
+ 207      =1  Interrupt Vectors:
+ 208      =1  Interrupt Address = (Number * 8) + 3
+ 209      =1  ------------------------------------------------*/
+ 210      =1  #define IE0_VECTOR  0  /* 0x03 External Interrupt 0 */
+ 211      =1  #define TF0_VECTOR  1  /* 0x0B Timer 0 */
+ 212      =1  #define IE1_VECTOR  2  /* 0x13 External Interrupt 1 */
+ 213      =1  #define TF1_VECTOR  3  /* 0x1B Timer 1 */
+ 214      =1  #define SIO_VECTOR  4  /* 0x23 Serial port */
+ 215      =1  
+ 216      =1  #define TF2_VECTOR  5  /* 0x2B Timer 2 */
+ 217      =1  #define EX2_VECTOR  5  /* 0x2B External Interrupt 2 */
+ 218      =1  
+ 219      =1  #endif
+ 220      =1  
+ 221      =1  
+   2          #if 0
+              //按着就亮
+              void main()
+              {
+                while(1)
+                {
+                  if(P3_1 == 0)
+                  {
+                    P2_0 = 0;//the lowest bit 
+                  }
+                  else{
+                    P2_0 = 1;
+                  }
+                }
+              }
+              #endif
+  18          
+  19          #if 1
+C51 COMPILER V9.60.7.0   CONTROL                                                           01/08/2023 15:32:52 PAGE 5   
+
+  20          void main()  //只会执行一次
+  21          {  
+  22   1        if(P3_1 == 0)
+  23   1          {
+  24   2            P2_0 = 0;//the lowest bit 
+  25   2          }
+  26   1          else{
+  27   2            P2_0 = 1;
+  28   2          }
+  29   1        while(1)
+  30   1        {
+  31   2        
+  32   2        }
+  33   1      }
+  34          #endif
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     11    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

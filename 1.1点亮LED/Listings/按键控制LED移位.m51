@@ -1,0 +1,129 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/08/2023  18:18:03  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+Z:\BUYAOBILIAN\KEIL_V5\C51\BIN\BL51.EXE .\Objects\shift.obj TO .\Objects\按键控制LED移位 PRINT (.\Listings\按键控制LED移
+>> 位.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\shift.obj (SHIFT)
+  Z:\BUYAOBILIAN\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\按键控制LED移位 (SHIFT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0050H     UNIT         ?PR?MAIN?SHIFT
+            CODE    0053H     0016H     UNIT         ?PR?_DELAY?SHIFT
+            CODE    0069H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\按键控制LED移位 (SHIFT)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?SHIFT
+
+?PR?MAIN?SHIFT                 0008H    0001H
+  +--> ?PR?_DELAY?SHIFT
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\按键控制LED移位 (SHIFT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SHIFT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00B0H.0       PUBLIC        P3_0
+  B:00B0H.1       PUBLIC        P3_1
+  C:0003H         PUBLIC        main
+  C:0057H         PUBLIC        _Delay
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/08/2023  18:18:03  PAGE 2
+
+
+  C:0053H         SYMBOL        L?0028
+  -------         PROC          L?0027
+  -------         ENDPROC       L?0027
+  C:0053H         SYMBOL        L?0028
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0057H         LINE#         3
+  C:0057H         LINE#         4
+  C:0057H         LINE#         7
+  C:0059H         LINE#         8
+  C:005BH         LINE#         10
+  C:005BH         LINE#         12
+  C:005BH         LINE#         13
+  C:005DH         LINE#         14
+  C:005FH         LINE#         15
+  C:0068H         LINE#         16
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0003H         SYMBOL        LEDplus
+  D:0008H         SYMBOL        LEDsub
+  -------         ENDDO         
+  C:0003H         LINE#         112
+  C:0003H         LINE#         113
+  C:0003H         LINE#         114
+  C:0005H         LINE#         115
+  C:0007H         LINE#         116
+  C:000AH         LINE#         118
+  C:000AH         LINE#         119
+  C:000AH         LINE#         120
+  C:000DH         LINE#         121
+  C:000DH         LINE#         122
+  C:0010H         LINE#         123
+  C:0013H         LINE#         125
+  C:0016H         LINE#         127
+  C:001CH         LINE#         128
+  C:001CH         LINE#         129
+  C:001EH         LINE#         130
+  C:001EH         LINE#         131
+  C:002FH         LINE#         132
+  C:002FH         LINE#         133
+  C:0032H         LINE#         134
+  C:0032H         LINE#         135
+  C:0035H         LINE#         136
+  C:0038H         LINE#         138
+  C:003BH         LINE#         140
+  C:003EH         LINE#         141
+  C:003EH         LINE#         142
+  C:0040H         LINE#         143
+  C:0042H         LINE#         145
+  C:0043H         LINE#         146
+  C:0051H         LINE#         147
+  C:0051H         LINE#         148
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/08/2023  18:18:03  PAGE 3
+
+
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        SHIFT
+
+Program Size: data=10.0 xdata=0 code=117
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

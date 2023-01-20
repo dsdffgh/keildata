@@ -1,0 +1,114 @@
+C51 COMPILER V9.60.7.0   TIMING                                                            01/17/2023 12:21:01 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TIMING
+OBJECT MODULE PLACED IN .\Objects\timing.obj
+COMPILER INVOKED BY: Z:\buyaobilian\Keil_v5\C51\BIN\C51.EXE timing.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\timing.lst) TABS(2) OBJECT(.\Objects\timing.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Timer0.h"
+   3          #include "key.h"
+   4          #include <intrins.h>
+   5          //#include "lcd1602.h"
+   6          
+   7          /*定时器介绍：51单片机的定时器属于单片机的内部资源，其电路的连接和运转均
+             -在单片机内部完成
+   8            定时器作用：
+   9            （1）用于计时系统，可实现软件计时，或者使程序每隔一固定时间完成一项操�
+             -�
+  10            （2）替代长时间的Delay，提高CPU的运行效率和处理速度
+  11            （…）
+  12            
+  13            定时器在单片机内部就像一个小闹钟一样，根据时钟的输出信号，每隔“一秒”
+             -，计数单元的数值就增加一，
+  14            当计数单元数值增加到“设定的闹钟提醒时间”时，计数单元就会向中断系统发
+             -出中断申请，产生“响铃提醒”，
+  15            使程序跳转到中断服务函数中执行
+  16          
+  17          */
+  18          
+  19          //按键控制流水灯模式
+  20          
+  21          unsigned int T0Count = 0;
+  22          unsigned char keynum,LEDMode;
+  23          
+  24          //  void Timer0_Init()
+  25          //  {
+  26          //  //  TMOD = 0x01;
+  27          //    TMOD = TMOD & 0XF0; //高四位不变，低四位清零
+  28          //    TMOD = TMOD | 0X01; //高四位不变，最低位置1
+  29          //    TF0 = 0;//配置TCON
+  30          //    TR0 = 1;
+  31          //    TH0 = 64535/256;
+  32          //    TL0 = 64535%256;
+  33          //    ET0 = 1;
+  34          //    EA = 1;
+  35          //    PT0 = 0;
+  36          //  }
+  37          
+  38          void Timer0_Rountine()  interrupt 1 //中断子程序
+  39          {
+  40   1        
+  41   1      //  TH0 = 64535/256;//保证每次计数都是1ms
+  42   1      //  TL0 = 64535%256;//但是实际上这样每次会少1us
+  43   1        
+  44   1        TMOD &= 0xF0;     
+  45   1        TMOD |= 0x01; 
+  46   1        T0Count++;
+  47   1        if(T0Count >= 12)
+  48   1        {
+  49   2          T0Count = 0;
+  50   2          //P2_0 = ~P2_0;//验证中断是否到达
+C51 COMPILER V9.60.7.0   TIMING                                                            01/17/2023 12:21:01 PAGE 2   
+
+  51   2      
+  52   2          if(LEDMode == 0){
+  53   3            P2 = _crol_(P2,1);//左移一位
+  54   3            //LCD_ShowHexNum(1,1,P2,6);
+  55   3          }
+  56   2          if(LEDMode == 1){
+  57   3            P2 = _cror_(P2,1);
+  58   3            //LCD_ShowHexNum(1,1,P2,6);
+  59   3          }
+  60   2        }
+  61   1      }
+  62          
+  63          void main()
+  64          {
+  65   1        P2 = 0XFE;
+  66   1        Timer0Init();
+  67   1        while(1)
+  68   1        {
+  69   2          keynum = key();
+  70   2      //    if(keynum == 1) {P2_1 = ~P2_1;}
+  71   2      //    if(keynum == 2) {P2_2 = ~P2_2;}
+  72   2      //    if(keynum == 3) {P2_3 = ~P2_3;}
+  73   2      //    if(keynum == 4) {P2_4 = ~P2_4;}
+  74   2      //测试是否有误
+  75   2          
+  76   2          if(keynum == 1) {
+  77   3            LEDMode++;
+  78   3            if(LEDMode > 1)
+  79   3              LEDMode = 0;
+  80   3          }
+  81   2          
+  82   2            
+  83   2        }
+  84   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    114    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
