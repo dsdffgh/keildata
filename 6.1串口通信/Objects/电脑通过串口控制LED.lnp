@@ -1,0 +1,5 @@
+".\Objects\Delay.obj",
+".\Objects\UART_Init.obj",
+".\Objects\serial_control.obj" 
+TO ".\Objects\电脑通过串口控制LED" 
+PRINT(".\Listings\电脑通过串口控制LED.m51") RAMSIZE(256) 

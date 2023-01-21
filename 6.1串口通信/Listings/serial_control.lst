@@ -1,0 +1,48 @@
+C51 COMPILER V9.60.7.0   SERIAL_CONTROL                                                    01/19/2023 14:16:37 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE SERIAL_CONTROL
+OBJECT MODULE PLACED IN .\Objects\serial_control.obj
+COMPILER INVOKED BY: Z:\buyaobilian\Keil_v5\C51\BIN\C51.EXE serial_control.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+                    - PRINT(.\Listings\serial_control.lst) TABS(2) OBJECT(.\Objects\serial_control.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "UART_Init.h"
+   3          #include "Delay.h"
+   4          
+   5          void main()
+   6          {
+   7   1        UartInit();
+   8   1        while(1)
+   9   1        {
+  10   2          
+  11   2        }
+  12   1      }
+  13          
+  14          //电脑发送数据的时候触发一个中断
+  15          void UART_Routine() interrupt 4
+  16          {
+  17   1      //  P2 = 0X00;//测试能否传入中断
+  18   1        if(RI == 1)
+  19   1        {
+  20   2          P2 = ~SBUF;
+  21   2          UART_SendByte(SBUF);
+  22   2          RI = 0;
+  23   2        }
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     76    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,171 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/19/2023  14:16:38  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+Z:\BUYAOBILIAN\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Delay.obj, .\Objects\UART_Init.obj, .\Objects\serial_control.obj TO .\
+>> Objects\电脑通过串口控制LED PRINT (.\Listings\电脑通过串口控制LED.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Delay.obj (DELAY)
+  .\Objects\UART_Init.obj (UART_INIT)
+  .\Objects\serial_control.obj (SERIAL_CONTROL)
+  Z:\BUYAOBILIAN\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\电脑通过串口控制LED (DELAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     0047H     UNIT         ?PR?UART_ROUTINE?SERIAL_CONTROL
+            CODE    0847H     001BH     UNIT         ?PR?UARTINIT?UART_INIT
+            CODE    0862H     0012H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0874H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0880H     0008H     UNIT         ?PR?_UART_SENDBYTE?UART_INIT
+            CODE    0888H     0005H     UNIT         ?PR?MAIN?SERIAL_CONTROL
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\电脑通过串口控制LED (DELAY)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?UART_ROUTINE?SERIAL_CONTROL
+  +--> ?PR?_UART_SENDBYTE?UART_INIT
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?SERIAL_CONTROL
+
+?PR?MAIN?SERIAL_CONTROL
+  +--> ?PR?UARTINIT?UART_INIT
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/19/2023  14:16:38  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\电脑通过串口控制LED (DELAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0862H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0862H         LINE#         3
+  C:0862H         LINE#         4
+  C:0862H         LINE#         7
+  C:0864H         LINE#         8
+  C:0866H         LINE#         10
+  C:0866H         LINE#         12
+  C:0866H         LINE#         13
+  C:0868H         LINE#         14
+  C:086AH         LINE#         15
+  C:0873H         LINE#         16
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        UART_INIT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  B:00A8H.4       PUBLIC        ES
+  B:0098H.1       PUBLIC        TI
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  C:0847H         PUBLIC        UartInit
+  D:0089H         PUBLIC        TMOD
+  C:0880H         PUBLIC        _UART_SendByte
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          UARTINIT
+  C:0847H         LINE#         7
+  C:0847H         LINE#         8
+  C:0847H         LINE#         9
+  C:084AH         LINE#         10
+  C:084DH         LINE#         15
+  C:0850H         LINE#         16
+  C:0853H         LINE#         17
+  C:0856H         LINE#         18
+  C:0859H         LINE#         19
+  C:085BH         LINE#         20
+  C:085DH         LINE#         22
+  C:085FH         LINE#         23
+  C:0861H         LINE#         24
+  -------         ENDPROC       UARTINIT
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/19/2023  14:16:38  PAGE 3
+
+
+  -------         PROC          _UART_SENDBYTE
+  D:0007H         SYMBOL        byte
+  C:0880H         LINE#         31
+  C:0880H         LINE#         32
+  C:0880H         LINE#         33
+  C:0882H         LINE#         35
+  C:0885H         LINE#         37
+  C:0887H         LINE#         38
+  -------         ENDPROC       _UART_SENDBYTE
+  -------         ENDMOD        UART_INIT
+
+  -------         MODULE        SERIAL_CONTROL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0800H         PUBLIC        UART_Routine
+  B:0098H.0       PUBLIC        RI
+  C:0888H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  -------         PROC          MAIN
+  C:0888H         LINE#         5
+  C:0888H         LINE#         6
+  C:0888H         LINE#         7
+  C:088BH         LINE#         8
+  C:088BH         LINE#         9
+  C:088BH         LINE#         11
+  -------         ENDPROC       MAIN
+  -------         PROC          UART_ROUTINE
+  C:0800H         LINE#         15
+  C:081DH         LINE#         18
+  C:0820H         LINE#         19
+  C:0820H         LINE#         20
+  C:0825H         LINE#         21
+  C:082AH         LINE#         22
+  C:082CH         LINE#         23
+  C:082CH         LINE#         24
+  -------         ENDPROC       UART_ROUTINE
+  -------         ENDMOD        SERIAL_CONTROL
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?DELAY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0084H BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=147
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

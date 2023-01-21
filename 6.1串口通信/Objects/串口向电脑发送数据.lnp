@@ -1,0 +1,5 @@
+".\Objects\serial_communication.obj",
+".\Objects\Delay.obj",
+".\Objects\UART_Init.obj" 
+TO ".\Objects\串口向电脑发送数据" 
+PRINT(".\Listings\串口向电脑发送数据.m51") RAMSIZE(256) 
