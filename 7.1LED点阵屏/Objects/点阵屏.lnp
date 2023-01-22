@@ -1,0 +1,5 @@
+".\Objects\Dot_matrix_screen.obj",
+".\Objects\Delay.obj",
+".\Objects\MatrixLED.obj" 
+TO ".\Objects\µ„’Û∆¡" 
+PRINT(".\Listings\µ„’Û∆¡.m51") RAMSIZE(256) 

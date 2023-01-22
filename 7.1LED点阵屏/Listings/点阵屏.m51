@@ -1,0 +1,162 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/21/2023  15:02:13  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+Z:\BUYAOBILIAN\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Dot_matrix_screen.obj, .\Objects\Delay.obj, .\Objects\MatrixLED.obj TO
+>>  .\Objects\µ„’Û∆¡ PRINT (.\Listings\µ„’Û∆¡.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Dot_matrix_screen.obj (DOT_MATRIX_SCREEN)
+  .\Objects\Delay.obj (DELAY)
+  .\Objects\MatrixLED.obj (MATRIXLED)
+  Z:\BUYAOBILIAN\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\µ„’Û∆¡ (DOT_MATRIX_SCREEN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002DH     UNIT         ?PR?__74HC595_WRITEBYTE_?MATRIXLED
+            CODE    082DH     0024H     UNIT         ?PR?_MATRIXLED_SHOWCOLUMN?MATRIXLED
+            CODE    0851H     0021H     UNIT         ?PR?MAIN?DOT_MATRIX_SCREEN
+            CODE    0872H     0012H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0884H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0890H     0005H     UNIT         ?PR?MATRIX_LEDINIT?MATRIXLED
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\µ„’Û∆¡ (DOT_MATRIX_SCREEN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DOT_MATRIX_SCREEN
+
+?PR?MAIN?DOT_MATRIX_SCREEN
+  +--> ?PR?MATRIX_LEDINIT?MATRIXLED
+  +--> ?PR?_MATRIXLED_SHOWCOLUMN?MATRIXLED
+
+?PR?_MATRIXLED_SHOWCOLUMN?MATRIXLED
+  +--> ?PR?__74HC595_WRITEBYTE_?MATRIXLED
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\µ„’Û∆¡ (DOT_MATRIX_SCREEN)
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/21/2023  15:02:13  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DOT_MATRIX_SCREEN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0851H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0851H         LINE#         4
+  C:0851H         LINE#         5
+  C:0851H         LINE#         7
+  C:0854H         LINE#         12
+  C:0854H         LINE#         13
+  C:0854H         LINE#         14
+  C:085BH         LINE#         15
+  C:0862H         LINE#         16
+  C:0869H         LINE#         17
+  C:0870H         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DOT_MATRIX_SCREEN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0872H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0872H         LINE#         3
+  C:0872H         LINE#         4
+  C:0872H         LINE#         7
+  C:0874H         LINE#         8
+  C:0876H         LINE#         10
+  C:0876H         LINE#         12
+  C:0876H         LINE#         13
+  C:0878H         LINE#         15
+  C:087AH         LINE#         16
+  C:0883H         LINE#         17
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        MATRIXLED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00B0H         PUBLIC        P3
+  C:082DH         PUBLIC        _MatrixLED_ShowColumn
+  C:0890H         PUBLIC        Matrix_LEDInit
+  C:0800H         PUBLIC        __74HC595_WriteByte_
+  B:00B0H.5       PUBLIC        RCK
+  B:00B0H.6       PUBLIC        SCK
+  B:00B0H.4       PUBLIC        SER
+  -------         PROC          MATRIX_LEDINIT
+  C:0890H         LINE#         15
+  C:0890H         LINE#         16
+  C:0890H         LINE#         17
+  C:0892H         LINE#         18
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/21/2023  15:02:13  PAGE 3
+
+
+  C:0894H         LINE#         19
+  -------         ENDPROC       MATRIX_LEDINIT
+  -------         PROC          __74HC595_WRITEBYTE_
+  D:0005H         SYMBOL        Byte
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         26
+  C:0802H         LINE#         27
+  C:0802H         LINE#         30
+  C:0804H         LINE#         31
+  C:0804H         LINE#         32
+  C:0820H         LINE#         33
+  C:0822H         LINE#         34
+  C:0824H         LINE#         42
+  C:0828H         LINE#         43
+  C:082AH         LINE#         44
+  C:082CH         LINE#         45
+  -------         ENDPROC       __74HC595_WRITEBYTE_
+  -------         PROC          _MATRIXLED_SHOWCOLUMN
+  D:0004H         SYMBOL        Column
+  D:0006H         SYMBOL        Data
+  C:082DH         LINE#         53
+  C:0831H         LINE#         54
+  C:0831H         LINE#         55
+  C:0836H         LINE#         56
+  C:0846H         LINE#         57
+  C:084DH         LINE#         58
+  C:0850H         LINE#         59
+  -------         ENDPROC       _MATRIXLED_SHOWCOLUMN
+  -------         ENDMOD        MATRIXLED
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0089H BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=152
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

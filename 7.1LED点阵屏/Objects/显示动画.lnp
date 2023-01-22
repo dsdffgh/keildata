@@ -1,0 +1,5 @@
+".\Objects\animation.obj",
+".\Objects\Delay.obj",
+".\Objects\MatrixLED.obj" 
+TO ".\Objects\显示动画" 
+PRINT(".\Listings\显示动画.m51") RAMSIZE(256) 
