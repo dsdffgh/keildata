@@ -1,0 +1,172 @@
+C51 COMPILER V9.60.7.0   DS1302                                                            01/27/2023 12:24:29 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DS1302
+OBJECT MODULE PLACED IN .\Objects\DS1302.obj
+COMPILER INVOKED BY: Z:\buyaobilian\keil_v5\C51\BIN\C51.EXE DS1302.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\DS1302.lst) TABS(2) OBJECT(.\Objects\DS1302.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <stdio.h>
+   3          
+   4          sbit DS1302_SCLK = P3 ^ 6;
+   5          sbit DS1302_IO = P3 ^ 4;
+   6          sbit DS1302_CE = P3 ^ 5;
+   7          
+   8          #define DS1302_SECOND   0X80
+   9          #define DS1302_MINTUE   0X82
+  10          #define DS1302_HOUR     0X84
+  11          #define DS1302_DATE     0X86
+  12          #define DS1302_MONTH    0X88
+  13          #define DS1302_WEEK     0X8A
+  14          #define DS1302_YEAR     0X8C
+  15          #define DS1302_WP       0X8E
+  16          
+  17          char DS1302_Time[] = {23, 1, 28, 23, 00, 59, 1};
+  18          
+  19          /*
+  20           *  @brief   DS1302初始化，使时钟和使能保持低电平
+  21           *  @param   无
+  22           *  @retva   无
+  23           */
+  24          void DS1302_Init()
+  25          {
+  26   1          DS1302_CE = 0;
+  27   1          DS1302_SCLK = 0;
+  28   1      }
+  29          
+  30          /*
+  31           *  @brief   读取地址和写入时间数据
+  32           *  @param   Command 命令字，时间数据的地址，   Data 要写入的时间数据
+  33           *  @retva   无
+  34           */
+  35          void DS1302_WriteByte(unsigned char Command, unsigned char Data)
+  36          {
+  37   1          unsigned char i;
+  38   1          DS1302_CE = 1; // 首先使能
+  39   1      
+  40   1          for (i = 0; i < 8; i++)
+  41   1          {
+  42   2              DS1302_IO = Command & (0x01 << i); // 取出最低位
+  43   2              DS1302_SCLK = 1;                   // 上升沿
+  44   2              DS1302_SCLK = 0;
+  45   2          }
+  46   1          for (i = 0; i < 8; i++)
+  47   1          {
+  48   2              DS1302_IO = Data & (0x01 << i); // 取出最低位
+  49   2              DS1302_SCLK = 1;                // 上升沿
+  50   2              DS1302_SCLK = 0;
+  51   2          }
+  52   1          DS1302_CE = 0;
+  53   1      }
+  54          
+C51 COMPILER V9.60.7.0   DS1302                                                            01/27/2023 12:24:29 PAGE 2   
+
+  55          /*
+  56           *  @brief   读取地址和返回时间数据
+  57           *  @param   Command 命令字，时间数据的地址
+  58           *  @retva   Data 时间数据
+  59           */
+  60          unsigned char DS1302_ReadByte(unsigned char Command)
+  61          {
+  62   1          unsigned char i, Data = 0x00;
+  63   1          DS1302_CE = 1;   // 首先使能
+  64   1          Command |= 0x01; // 把写的地址转换为读的地址，读取的最低位必为1
+  65   1          for (i = 0; i < 8; i++)
+  66   1          {
+  67   2              DS1302_IO = Command & (0x01 << i); // 取出最低位
+  68   2              DS1302_SCLK = 0;                   // 下降沿
+  69   2              DS1302_SCLK = 1;                   // 先给下降沿是保证结束时为 1
+  70   2          }
+  71   1      
+  72   1          for (i = 0; i < 8; i++)
+  73   1          {
+  74   2              DS1302_SCLK = 1; // 重复置一可以去掉一个脉冲
+  75   2              DS1302_SCLK = 0; // 保证结束时为零
+  76   2              if (DS1302_IO)
+  77   2              {
+  78   3                  Data |= (0x01 << i);
+  79   3              }
+  80   2          }
+  81   1      
+  82   1          DS1302_CE = 0;
+  83   1          DS1302_IO = 0;
+  84   1          return Data;
+  85   1      }
+  86          
+  87          /*
+  88           *  @brief   将十进制码转换为BCD码
+  89           *  @param   time 一个unsigned char类型的整数，值为数组内的数据
+  90           *  @retva   BCD码，以便DS1302读取
+  91           */
+  92          unsigned char to_BCD(unsigned char time)
+  93          {
+  94   1          return (time / 10 * 16 + time % 10);
+  95   1      }
+  96          
+  97          unsigned char to_BCD__(unsigned char *time)
+  98          {
+  99   1          return *time / 10 * 16 + *time % 10;
+ 100   1      }
+ 101          
+ 102          /*
+ 103           *  @brief   将BCD码转换为十进制码
+ 104           *  @param   time 一个unsigned char类型的整数，值为数组内的数据
+ 105           *  @retva   十进制码，以便读取DS1302
+ 106           */
+ 107          unsigned char from_BCD(unsigned char time)
+ 108          {
+ 109   1          return (time / 16 * 10 + time % 16);
+ 110   1      }
+ 111          
+ 112          /*
+ 113           *  @brief   设置时间，将数组里贮存的时间数据写入寄存器
+ 114           *  @param   无
+ 115           *  @retva   无
+ 116           */
+C51 COMPILER V9.60.7.0   DS1302                                                            01/27/2023 12:24:29 PAGE 3   
+
+ 117          void DS1302_SetTime()
+ 118          {
+ 119   1          DS1302_WriteByte(DS1302_WP, 0x00); // 解除写保护
+ 120   1          DS1302_WriteByte(DS1302_YEAR,   to_BCD__(DS1302_Time));
+ 121   1          DS1302_WriteByte(DS1302_MONTH,  to_BCD__(DS1302_Time + 1));
+ 122   1          DS1302_WriteByte(DS1302_DATE,   to_BCD__(DS1302_Time + 2));
+ 123   1          DS1302_WriteByte(DS1302_HOUR,   to_BCD__(DS1302_Time + 3));
+ 124   1          DS1302_WriteByte(DS1302_MINTUE, to_BCD__(DS1302_Time + 4));
+ 125   1          DS1302_WriteByte(DS1302_SECOND, to_BCD__(DS1302_Time + 5));
+ 126   1          DS1302_WriteByte(DS1302_WEEK,   to_BCD__(DS1302_Time + 6));
+ 127   1          DS1302_WriteByte(DS1302_WP, 0x80); // 打开写保护
+ 128   1      }
+ 129          
+ 130          /*
+ 131           *  @brief   读取时间，将数据写入数组，之后主模块直接调用数组即可
+ 132           *  @param   无
+ 133           *  @retva   无
+ 134           */
+ 135          void DS1302_ReadTime()
+ 136          {
+ 137   1          DS1302_Time[0] = from_BCD(DS1302_ReadByte(DS1302_YEAR));
+ 138   1          DS1302_Time[1] = from_BCD(DS1302_ReadByte(DS1302_MONTH));
+ 139   1          DS1302_Time[2] = from_BCD(DS1302_ReadByte(DS1302_DATE));
+ 140   1          DS1302_Time[3] = from_BCD(DS1302_ReadByte(DS1302_HOUR));
+ 141   1          DS1302_Time[4] = from_BCD(DS1302_ReadByte(DS1302_MINTUE));
+ 142   1          DS1302_Time[5] = from_BCD(DS1302_ReadByte(DS1302_SECOND));
+ 143   1          DS1302_Time[6] = from_BCD(DS1302_ReadByte(DS1302_WEEK));
+ 144   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    414    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      7    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
