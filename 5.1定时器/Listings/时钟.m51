@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/27/2023  10:15:00  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/28/2023  12:37:42  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Objects\时钟 (CLOCK)
             CODE    0B45H     0012H     UNIT         ?PR?_DELAY?DELAY
             CODE    0B57H     000FH     UNIT         ?PR?LCD_DELAY?LCD1602
             CODE    0B66H     000AH     UNIT         ?C_INITSEG
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 2
 
 
             CODE    0B70H     000AH     UNIT         ?PR?_LCD_WRITECOMMAND?LCD1602
@@ -118,10 +118,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\时钟 (CLOCK)
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:001AH         PUBLIC        Hour
   C:0920H         PUBLIC        main
-  D:0089H         PUBLIC        TMOD
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 3
+  D:008CH         PUBLIC        TH0
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 3
 
 
+  D:008AH         PUBLIC        TL0
   D:001BH         PUBLIC        Second
   C:096FH         PUBLIC        Timer0_Rountine
   D:001CH         PUBLIC        Mintue
@@ -178,10 +179,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\时钟 (CLOCK)
   -------         ENDDO         
   C:0B45H         LINE#         3
   C:0B45H         LINE#         4
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 4
+
+
   C:0B45H         LINE#         7
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 4
-
-
   C:0B47H         LINE#         8
   C:0B49H         LINE#         10
   C:0B49H         LINE#         12
@@ -238,10 +239,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\时钟 (CLOCK)
   C:0B72H         LINE#         38
   C:0B75H         LINE#         39
   C:0B77H         LINE#         40
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 5
+
+
   -------         ENDPROC       _LCD_WRITECOMMAND
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 5
-
-
   -------         PROC          L?0047
   -------         ENDPROC       L?0047
   -------         PROC          _LCD_WRITEDATA
@@ -298,10 +299,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\时钟 (CLOCK)
   C:0A94H         LINE#         110
   C:0A9AH         LINE#         111
   C:0A9AH         LINE#         113
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 6
+
+
   C:0A9DH         LINE#         114
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 6
-
-
   C:0AB0H         LINE#         115
   C:0AB0H         LINE#         116
   C:0AB3H         LINE#         117
@@ -358,10 +359,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\时钟 (CLOCK)
   C:09B6H         LINE#         161
   C:09B6H         LINE#         164
   C:09B9H         LINE#         165
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 7
+
+
   C:09C1H         LINE#         166
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 7
-
-
   C:09C1H         LINE#         167
   C:09C6H         LINE#         168
   C:09CAH         LINE#         169
@@ -418,8 +419,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\时钟 (CLOCK)
   C:0A60H         LINE#         223
   -------         ENDPROC       _LCD_SHOWBINNUM
   -------         ENDMOD        LCD1602
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 8
 
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 8
 
 
   -------         MODULE        TIMER0
@@ -478,10 +479,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\时钟 (CLOCK)
 
 ******************************************************************************
 * RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0266H BYTE (29%) *
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/28/2023  12:37:42  PAGE 9
+
+
 ******************************************************************************
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  01/27/2023  10:15:00  PAGE 9
-
-
 
 Program Size: data=40.0 xdata=0 code=906
 LINK/LOCATE RUN COMPLETE.  5 WARNING(S),  0 ERROR(S)

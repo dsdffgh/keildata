@@ -1,0 +1,8 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj",
+".\Objects\key.obj",
+".\Objects\LCD1602.obj",
+".\Objects\AT24C02.obj",
+".\Objects\I2C.obj" 
+TO ".\Objects\数据存储" 
+PRINT(".\Listings\数据存储.m51") RAMSIZE(256) 

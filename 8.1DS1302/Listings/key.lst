@@ -1,9 +1,9 @@
-C51 COMPILER V9.60.7.0   KEY                                                               01/27/2023 12:24:29 PAGE 1   
+C51 COMPILER V9.60.7.0   KEY                                                               02/02/2023 12:12:10 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE KEY
 OBJECT MODULE PLACED IN .\Objects\key.obj
-COMPILER INVOKED BY: Z:\buyaobilian\keil_v5\C51\BIN\C51.EXE key.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Li
+COMPILER INVOKED BY: Z:\buyaobilian\keil_v5\C51\BIN\C51.EXE key.c OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Li
                     -stings\key.lst) TABS(2) OBJECT(.\Objects\key.obj)
 
 line level    source

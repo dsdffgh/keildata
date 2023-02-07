@@ -2,7 +2,7 @@
 #include "LCD1602.h"
 #include "DS1302.h"
 #include "Delay.h"
-#include "MatrixKey.h"
+#include "Key.h"
 #include "Timer0.h"
 
 unsigned char KeyNum, ClockMode;
@@ -134,10 +134,10 @@ void TimeCalibrating()
 void Timer0_Rountine() interrupt 1 // 中断子程序
 {
     static unsigned int T0Count;
-    TMOD &= 0xF0;
-    TMOD |= 0x01;
+    TL0 = 0x66;		//设置定时初值
+	TH0 = 0xFC;		//设置定时初值
     T0Count++;
-    if (T0Count >= 13)
+    if (T0Count >= 1000)
     {
         T0Count = 0;
         TimeCal_FlashFlag = !TimeCal_FlashFlag;
@@ -153,7 +153,7 @@ void main()
     DS1302_SetTime();
     while (1)
     {
-        KeyNum = MatrixKey();
+        KeyNum = Key();
         if (KeyNum == 1)
         {
             ClockMode = ~ClockMode;

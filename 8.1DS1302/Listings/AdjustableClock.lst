@@ -1,9 +1,9 @@
-C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   01/27/2023 12:30:58 PAGE 1   
+C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   02/02/2023 12:07:27 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE ADJUSTABLECLOCK
 OBJECT MODULE PLACED IN .\Objects\AdjustableClock.obj
-COMPILER INVOKED BY: Z:\buyaobilian\keil_v5\C51\BIN\C51.EXE AdjustableClock.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEN
+COMPILER INVOKED BY: Z:\buyaobilian\keil_v5\C51\BIN\C51.EXE AdjustableClock.c OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEN
                     -D PRINT(.\Listings\AdjustableClock.lst) TABS(2) OBJECT(.\Objects\AdjustableClock.obj)
 
 line level    source
@@ -12,7 +12,7 @@ line level    source
    2          #include "LCD1602.h"
    3          #include "DS1302.h"
    4          #include "Delay.h"
-   5          #include "MatrixKey.h"
+   5          #include "Key.h"
    6          #include "Timer0.h"
    7          
    8          unsigned char KeyNum, ClockMode;
@@ -62,7 +62,7 @@ line level    source
   52   2              {
   53   3                  DS1302_Time[2] = 1;
   54   3              }
-C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   01/27/2023 12:30:58 PAGE 2   
+C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   02/02/2023 12:07:27 PAGE 2   
 
   55   2              if (DS1302_Time[2] < 1)
   56   2              {
@@ -126,7 +126,7 @@ line level    source
  114   2              DS1302_Time[TimeSelect]++;
  115   2          }
  116   1          else if (KeyNum == 4)
-C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   01/27/2023 12:30:58 PAGE 3   
+C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   02/02/2023 12:07:27 PAGE 3   
 
  117   1          {
  118   2              DS1302_Time[TimeSelect]--;
@@ -154,10 +154,10 @@ line level    source
  134          void Timer0_Rountine() interrupt 1 // 中断子程序
  135          {
  136   1          static unsigned int T0Count;
- 137   1          TMOD &= 0xF0;
- 138   1          TMOD |= 0x01;
+ 137   1          TL0 = 0x66;   //设置定时初值
+ 138   1        TH0 = 0xFC;   //设置定时初值
  139   1          T0Count++;
- 140   1          if (T0Count >= 13)
+ 140   1          if (T0Count >= 1000)
  141   1          {
  142   2              T0Count = 0;
  143   2              TimeCal_FlashFlag = !TimeCal_FlashFlag;
@@ -173,7 +173,8 @@ line level    source
  153   1          DS1302_SetTime();
  154   1          while (1)
  155   1          {
- 156   2              KeyNum = MatrixKey();
+ 156   2              KeyNum = Key();
+*** WARNING C206 IN LINE 156 OF AdjustableClock.c: 'Key': missing function-prototype
  157   2              if (KeyNum == 1)
  158   2              {
  159   3                  ClockMode = ~ClockMode;
@@ -189,12 +190,12 @@ line level    source
  169   3              }
  170   2          }
  171   1      }
+C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   02/02/2023 12:07:27 PAGE 4   
 
-C51 COMPILER V9.60.7.0   ADJUSTABLECLOCK                                                   01/27/2023 12:30:58 PAGE 4   
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    761    ----
+   CODE SIZE        =    688    ----
    CONSTANT SIZE    =      3    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
@@ -204,4 +205,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

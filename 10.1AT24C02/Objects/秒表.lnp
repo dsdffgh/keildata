@@ -1,0 +1,7 @@
+".\Objects\Delay.obj",
+".\Objects\main_time.obj",
+".\Objects\Timer0.obj",
+".\Objects\NixieTube.obj",
+".\Objects\key.obj" 
+TO ".\Objects\√Î±Ì" 
+PRINT(".\Listings\√Î±Ì.m51") RAMSIZE(256) 

@@ -8,10 +8,10 @@ unsigned char Second = 55,Mintue = 59,Hour = 23;
 void Timer0_Rountine() interrupt 1//中断函数不宜执行过长任务
 {
 	static unsigned int T0Count;
-	TMOD &= 0xF0;			
-	TMOD |= 0x01;	
+	TL0 = 0x66;				//设置定时初始值
+	TH0 = 0xFC;				//设置定时初始值
 	T0Count++;
-	if(T0Count >= 13)
+	if(T0Count >= 1000)
 	{
 		T0Count = 0;
 		Second++;

@@ -1,9 +1,9 @@
-C51 COMPILER V9.60.7.0   CLOCK                                                             01/27/2023 10:13:48 PAGE 1   
+C51 COMPILER V9.60.7.0   CLOCK                                                             01/28/2023 12:37:42 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE CLOCK
 OBJECT MODULE PLACED IN .\Objects\clock.obj
-COMPILER INVOKED BY: Z:\buyaobilian\Keil_v5\C51\BIN\C51.EXE clock.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+COMPILER INVOKED BY: Z:\buyaobilian\keil_v5\C51\BIN\C51.EXE clock.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
                     -Listings\clock.lst) TABS(2) OBJECT(.\Objects\clock.obj)
 
 line level    source
@@ -18,10 +18,10 @@ line level    source
    8          void Timer0_Rountine() interrupt 1//中断函数不宜执行过长任务
    9          {
   10   1        static unsigned int T0Count;
-  11   1        TMOD &= 0xF0;     
-  12   1        TMOD |= 0x01; 
+  11   1        TL0 = 0x18;       //设置定时初始值
+  12   1        TH0 = 0xFC;       //设置定时初始值
   13   1        T0Count++;
-  14   1        if(T0Count >= 13)
+  14   1        if(T0Count >= 1000)
   15   1        {
   16   2          T0Count = 0;
   17   2          Second++;
@@ -62,7 +62,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      5    ----
-C51 COMPILER V9.60.7.0   CLOCK                                                             01/27/2023 10:13:48 PAGE 2   
+C51 COMPILER V9.60.7.0   CLOCK                                                             01/28/2023 12:37:42 PAGE 2   
 
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----

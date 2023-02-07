@@ -1,0 +1,5 @@
+".\Objects\Delay.obj",
+".\Objects\Timer0.obj",
+".\Objects\music_main.obj" 
+TO ".\Objects\Ð¡ÐÇÐÇ" 
+PRINT(".\Listings\Ð¡ÐÇÐÇ.m51") RAMSIZE(256) 

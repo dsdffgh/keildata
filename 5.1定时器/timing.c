@@ -2,7 +2,7 @@
 #include "Timer0.h"
 #include "key.h"
 #include <intrins.h>
-//#include "lcd1602.h"
+#include "lcd1602.h"
 
 /*定时器介绍：51单片机的定时器属于单片机的内部资源，其电路的连接和运转均在单片机内部完成
 	定时器作用：
@@ -41,10 +41,10 @@ void Timer0_Rountine()	interrupt 1	//中断子程序
 //	TH0 = 64535/256;//保证每次计数都是1ms
 //	TL0 = 64535%256;//但是实际上这样每次会少1us
 	
-	TMOD &= 0xF0;			
-	TMOD |= 0x01;	
+	TL0 = 0x66;		//设置定时初值
+	TH0 = 0xFC;		//设置定时初值
 	T0Count++;
-	if(T0Count >= 12)
+	if(T0Count >= 500)
 	{
 		T0Count = 0;
 		//P2_0 = ~P2_0;//验证中断是否到达

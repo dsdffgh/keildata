@@ -1,0 +1,7 @@
+".\Objects\beep_main.obj",
+".\Objects\Delay.obj",
+".\Objects\key.obj",
+".\Objects\NixieTube.obj",
+".\Objects\Buzzer.obj" 
+TO ".\Objects\提示音" 
+PRINT(".\Listings\提示音.m51") RAMSIZE(256) 
