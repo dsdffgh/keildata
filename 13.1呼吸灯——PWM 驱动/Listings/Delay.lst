@@ -1,0 +1,77 @@
+C51 COMPILER V9.60.7.0   DELAY                                                             09/29/2023 11:14:12 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Objects\Delay.obj
+COMPILER INVOKED BY: D:\Programs\Keil_v5\C51\BIN\C51.EXE Delay.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\Delay.lst) TABS(2) OBJECT(.\Objects\Delay.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          void Delay1s(unsigned int x)  //@12.000MHz
+   4          {
+   5   1        unsigned char data i, j, k;
+   6   1      
+   7   1        do{
+   8   2        i = 8;
+   9   2        j = 154;
+  10   2        k = 122;
+  11   2        do
+  12   2        {
+  13   3          do
+  14   3          {
+  15   4            while (--k);
+  16   4          } while (--j);
+  17   3        } while (--i);
+  18   2      }while(--x);
+  19   1      }
+  20          
+  21          void Delay1ms(unsigned int x) //@12.000MHz
+  22          {
+  23   1        unsigned char i, j;
+  24   1      
+  25   1        i = 2;
+  26   1        j = 239;
+  27   1        do
+  28   1        {
+  29   2          do
+  30   2          {
+  31   3            while (--j)
+  32   3              ;
+  33   3          } while (--i);
+  34   2        } while (--x);
+  35   1      }
+  36          
+  37          //__attribute__((weak)) void Delay(unsigned int x) //@11.0592MHz
+  38          //{
+  39          //  unsigned char i, j;
+  40          
+  41          //  i = 2;
+  42          //  j = 199;
+  43          //  do
+  44          //  {
+  45          //    do
+  46          //    {
+  47          //      while (--j)
+  48          //        ;
+  49          //    } while (--i);
+  50          //  } while (--x);
+  51          //}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.60.7.0   DELAY                                                             09/29/2023 11:14:12 PAGE 2   
+
+   CODE SIZE        =     40    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

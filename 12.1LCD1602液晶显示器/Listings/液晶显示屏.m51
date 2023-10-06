@@ -1,0 +1,171 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/28/2023  20:53:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\PROGRAMS\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\LCD1602_Refactor.obj TO .\Objects\“∫æßœ‘ æ∆¡ PRINT (.
+>> \Listings\“∫æßœ‘ æ∆¡.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\LCD1602_Refactor.obj (LCD1602_REFACTOR)
+  D:\PROGRAMS\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\“∫æßœ‘ æ∆¡ (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     001CH     UNIT         ?PR?_LCD_SHOWCHAR?LCD1602_REFACTOR
+            CODE    001FH     0014H     UNIT         ?PR?LCD_INIT?LCD1602_REFACTOR
+            CODE    0033H     000FH     UNIT         ?PR?LCD_DELAY?LCD1602_REFACTOR
+            CODE    0042H     000EH     UNIT         ?PR?MAIN?MAIN
+            CODE    0050H     000CH     UNIT         ?C_C51STARTUP
+            CODE    005CH     000AH     UNIT         ?PR?_LCD_WRITECOMMAND?LCD1602_REFACTOR
+            CODE    0066H     000AH     UNIT         ?PR?_LCD_WRITEDATA?LCD1602_REFACTOR
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\“∫æßœ‘ æ∆¡ (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?LCD_INIT?LCD1602_REFACTOR
+  +--> ?PR?_LCD_SHOWCHAR?LCD1602_REFACTOR
+
+?PR?LCD_INIT?LCD1602_REFACTOR
+  +--> ?PR?_LCD_WRITECOMMAND?LCD1602_REFACTOR
+
+?PR?_LCD_WRITECOMMAND?LCD1602_REFACTOR
+  +--> ?PR?LCD_DELAY?LCD1602_REFACTOR
+
+?PR?_LCD_SHOWCHAR?LCD1602_REFACTOR
+  +--> ?PR?_LCD_WRITECOMMAND?LCD1602_REFACTOR
+  +--> ?PR?_LCD_WRITEDATA?LCD1602_REFACTOR
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/28/2023  20:53:20  PAGE 2
+
+
+
+?PR?_LCD_WRITEDATA?LCD1602_REFACTOR
+  +--> ?PR?LCD_DELAY?LCD1602_REFACTOR
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\“∫æßœ‘ æ∆¡ (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0042H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0042H         LINE#         4
+  C:0042H         LINE#         5
+  C:0042H         LINE#         6
+  C:0045H         LINE#         7
+  C:004EH         LINE#         8
+  C:004EH         LINE#         9
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        LCD1602_REFACTOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:005CH         PUBLIC        _LCD_WriteCommand
+  C:0039H         PUBLIC        LCD_Delay
+  C:0066H         PUBLIC        _LCD_WriteData
+  B:00A0H.7       PUBLIC        LCD_EN
+  C:0003H         PUBLIC        _LCD_ShowChar
+  B:00A0H.6       PUBLIC        LCD_RS
+  B:00A0H.5       PUBLIC        LCD_RW
+  C:001FH         PUBLIC        LCD_INIT
+  -------         PROC          L?0015
+  -------         ENDPROC       L?0015
+  -------         PROC          LCD_DELAY
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0039H         LINE#         15
+  C:0039H         LINE#         16
+  C:0039H         LINE#         19
+  C:003BH         LINE#         20
+  C:003DH         LINE#         22
+  C:003DH         LINE#         23
+  C:003FH         LINE#         25
+  C:0041H         LINE#         26
+  -------         ENDPROC       LCD_DELAY
+  -------         PROC          _LCD_WRITECOMMAND
+  D:0007H         SYMBOL        Command
+  C:005CH         LINE#         33
+  C:005CH         LINE#         34
+  C:005CH         LINE#         35
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/28/2023  20:53:20  PAGE 3
+
+
+  C:005EH         LINE#         36
+  C:005EH         LINE#         37
+  C:005EH         LINE#         38
+  C:005EH         LINE#         39
+  C:0061H         LINE#         40
+  C:0063H         LINE#         41
+  -------         ENDPROC       _LCD_WRITECOMMAND
+  -------         PROC          _LCD_WRITEDATA
+  D:0007H         SYMBOL        Data
+  C:0066H         LINE#         49
+  C:0066H         LINE#         50
+  C:0066H         LINE#         51
+  C:0068H         LINE#         52
+  C:0068H         LINE#         53
+  C:0068H         LINE#         54
+  C:0068H         LINE#         55
+  C:006BH         LINE#         56
+  C:006DH         LINE#         57
+  -------         ENDPROC       _LCD_WRITEDATA
+  -------         PROC          LCD_INIT
+  C:001FH         LINE#         65
+  C:001FH         LINE#         66
+  C:001FH         LINE#         67
+  C:0024H         LINE#         68
+  C:0029H         LINE#         69
+  C:002EH         LINE#         70
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          _LCD_SHOWCHAR
+  D:0006H         SYMBOL        Line
+  D:0005H         SYMBOL        Column
+  D:0004H         SYMBOL        Char
+  C:0003H         LINE#         80
+  C:0007H         LINE#         81
+  C:0007H         LINE#         82
+  C:000AH         LINE#         83
+  C:000AH         LINE#         84
+  C:000CH         LINE#         85
+  C:000EH         LINE#         86
+  C:0011H         LINE#         87
+  C:0011H         LINE#         88
+  C:001AH         LINE#         89
+  C:001AH         LINE#         90
+  -------         ENDPROC       _LCD_SHOWCHAR
+  -------         ENDMOD        LCD1602_REFACTOR
+
+Program Size: data=9.0 xdata=0 code=112
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

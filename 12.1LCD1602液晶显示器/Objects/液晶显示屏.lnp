@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\LCD1602_Refactor.obj" 
+TO ".\Objects\“∫æßœ‘ æ∆¡" 
+PRINT(".\Listings\“∫æßœ‘ æ∆¡.m51") RAMSIZE(256) 

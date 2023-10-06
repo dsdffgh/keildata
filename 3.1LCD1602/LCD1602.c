@@ -145,7 +145,7 @@ void LCD_ShowNum(unsigned char Line,unsigned char Column,unsigned int Number,uns
 	LCD_SetCursor(Line,Column);
 	for(i=Length;i>0;i--)
 	{
-		LCD_WriteData(Number/LCD_Pow(10,i-1)%10+'0');
+		LCD_WriteData(Number/LCD_Pow(10,i-1)%10+'0');//一位一位写出来
 	}
 }
 

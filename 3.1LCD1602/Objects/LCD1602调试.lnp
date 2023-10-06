@@ -1,4 +1,4 @@
-".\Objects\MAIN.obj",
-".\Objects\LCD1602.obj" 
+".\Objects\LCD1602.obj",
+".\Objects\MAIN-DESKTOP-BI72J98.obj" 
 TO ".\Objects\LCD1602ต๗สิ" 
 PRINT(".\Listings\LCD1602ต๗สิ.m51") RAMSIZE(256) 
