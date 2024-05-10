@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "I2C.C": "cpp",
+        "AT24C02.C": "cpp"
+    }
+}

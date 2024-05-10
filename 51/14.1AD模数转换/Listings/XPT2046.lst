@@ -1,0 +1,80 @@
+C51 COMPILER V9.60.7.0   XPT2046                                                           11/13/2023 19:49:27 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE XPT2046
+OBJECT MODULE PLACED IN .\Objects\XPT2046.obj
+COMPILER INVOKED BY: D:\Programs\Keil_v5\C51\BIN\C51.EXE XPT2046.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\XPT2046.lst) TABS(2) OBJECT(.\Objects\XPT2046.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Delay.h"
+   3          
+   4          // 定义引脚
+   5          sbit XPT2046_CS = P3^5;
+   6          sbit XPT2046_DIN = P3^4;
+   7          sbit XPT2046_DOUT = P3^7;
+   8          sbit XPT2046_DCLK = P3^6;
+   9          
+  10          #define XPT2046_XP_8 0x9C   //0x8C
+  11          #define XPT2046_YP_8 0xDC
+  12          #define XPT2046_V_BAT_8 0xAC
+  13          #define XPT2046_AUX_IN_8 0xEC 
+  14          
+  15          #define XPT2046_XP_12 0x94
+  16          #define XPT2046_YP_12 0xD4
+  17          #define XPT2046_V_BAT_12 0xA4
+  18          #define XPT2046_AUX_IN_12 0xE4
+  19          
+  20          /**
+  21            * @brief  XPT2046读取AD值
+  22            * @param  Command 命令字，范围：头文件内定义的宏，结尾的数字表示转换的位数
+  23            * @retval AD转换后的数字量，范围：8位为0~255，12位为0~4095
+  24            */
+  25          unsigned int XPT2046_ReadAD(unsigned char Command)
+  26          {
+  27   1        unsigned char i;
+  28   1        unsigned int AD_value = 0;
+  29   1        XPT2046_CS = 0;
+  30   1        XPT2046_DCLK = 0; // initial
+  31   1        for( i = 0; i < 8; i++)
+  32   1        {
+  33   2          XPT2046_DIN = Command & (0x80 >> i);
+  34   2          XPT2046_DCLK = 1;
+  35   2          XPT2046_DCLK = 0;
+  36   2        }
+  37   1        //Delay(1);
+  38   1        // coversion
+  39   1        for( i = 0; i < 16; i++)
+  40   1        {
+  41   2          // 此时处于下降沿，先上升
+  42   2          XPT2046_DCLK = 1;
+  43   2          XPT2046_DCLK = 0;
+  44   2          if(XPT2046_DOUT)  { 
+  45   3            AD_value |= (0x8000 >> i); 
+  46   3          }
+  47   2        }
+  48   1        
+  49   1        XPT2046_CS = 1;   // Finish  
+  50   1        if(Command&0x08)
+  51   1          return AD_value >> 8;
+  52   1        else
+  53   1          return AD_value >> 4;
+  54   1      }
+C51 COMPILER V9.60.7.0   XPT2046                                                           11/13/2023 19:49:27 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    110    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

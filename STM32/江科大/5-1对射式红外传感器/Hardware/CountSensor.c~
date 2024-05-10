@@ -1,0 +1,19 @@
+#include "stm32f10x.h"                  // Device header
+
+void CountSensor(void)
+{
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+	
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_14;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHZ;
+	GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);
+	
+	EXTI_InitTypeDef EXIT_InitStruct;
+	
+	EXTI_Init()
+}

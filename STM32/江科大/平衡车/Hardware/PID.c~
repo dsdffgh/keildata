@@ -1,0 +1,69 @@
+//  PWM_out=Kp×e(k)+Ki×Σe(k)+Kd×[e(k)-e(k-1)]
+#define LowPass_exper 0.7   // 低通滤波经验参数
+#define Limit_Uppper 10000
+#define Limit_Lower -10000
+
+void EXTI9_5_IRQHandler(void)
+{
+    if (EXTI_GetITStatus(EXTI_Line5) != RESET)
+    {
+        if(PBin(5))
+        {
+            // 陀螺仪中断
+            EXTI_ClearITPendingBit(EXTI_Line5);
+            Encoder_left = -Encoder_Get(2);
+            Encode_right = Encoder_Get(4);
+
+            
+        }
+        
+    }
+}
+
+
+/* 直立环
+ * Kp×Ek+Kd×Ek_D
+ *     Ek=真实角度-期望角度（Angle-Med，由陀螺仪MPU6050测得）
+ *     Ek_D=真实角速度（gyro_Y，由陀螺仪MPU6050测得）
+ * 参数： Med：期望位置，机械中值
+ *       Angle：当前位置，真实角度
+ *       Gyro_Y：陀螺仪Y轴角速度
+ */
+int VerticalPidCalc(float Med, float Angle, float Gyro_Y)
+{
+    int PWM_out;
+    static float Vertical_Kp = 0, Vertical_Kd = 0;
+    PWM_out = Vertical_Kp * (Angle - Med) + Vertical_Kd * (Gyro_Y - 0);
+    return PWM_out;
+}
+/* 速度环
+ * Kp×Ek+Kd×Ek_S
+ *      Ek=真实速度-期望速度（真实速度：左电机速度+右电机速度；期望速度：0）
+ *      Ek_S=速度偏差的累加
+ *  参数：
+ */
+int VelocityPidCalc(int Target, int realSpeed)
+{
+    int PWM_out;
+    static int Encoder_error;
+    static int Encoder_error_last;
+    static int Encoder_error_sum;
+    static int Encoder_err_tmp = (realSpeed - Target);
+
+    static float Velocity_Kp = 0, Velocity_Ki = 0;
+    // 低通滤波
+    Encoder_error = LowPass_exper * Encoder_error_last + (1 - LowPass_exper) * Encoder_err_tmp;// 使得波形更加平滑，滤除高频干扰，放置速度突变
+    Encoder_error_last = Encoder_error; // 防止速度过大影响直立环的正常工作
+
+    Encoder_error_sum += Encoder_error; // 误差累加
+    Encoder_error_sum = Encoder_error_sum > Limit_Uppper ? Limit_Uppper : (Encoder_error_sum < Limit_Lower ? Limit_Lower : Encoder_error_sum); // 积分限幅
+
+    PWM_out = Velocity_Kp * Encoder_error + Velocity_Ki * Encoder_error_sum;
+
+    return PWM_out;
+}
+/* 转向环 */
+int TurnPidCalc(int Gyro_z)
+{
+    return ((-0.6) * Gyro_z);
+}

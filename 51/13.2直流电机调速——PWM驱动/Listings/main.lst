@@ -1,0 +1,80 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              11/13/2023 17:09:25 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Programs\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          //#include "Delay.h"
+   3          #include "key.h"
+   4          #include "NixieTube.h"
+   5          #include "Timer0.h"
+   6          
+   7          #define uchar unsigned char
+   8          #define uint unsigned int
+   9          //#define Criterion 50
+  10          
+  11          //sbit LED = P2 ^ 0;
+  12          sbit Motor = P1 ^ 0;
+  13          
+  14          uchar Count = 0, Criterion = 0;
+  15          
+  16          void Timer0_Rountine() interrupt 1
+  17          {
+  18   1          TL0 = TIMS;
+  19   1          TH0 = TIMS >> 8;
+  20   1          Count++;
+  21   1          Count %= 100;
+  22   1      
+  23   1          if (Count < Criterion)
+  24   1          {
+  25   2              Motor = 1;
+  26   2          }
+  27   1          else
+  28   1              Motor = 0;
+  29   1      }
+  30          
+  31          void main()
+  32          {
+  33   1      uchar KeyNum = 0;
+  34   1      uchar Speed = 0;
+  35   1          Timer0_Init();
+  36   1          while (1)
+  37   1          {
+  38   2              KeyNum = key();
+  39   2              if (KeyNum == 1)
+  40   2              {
+  41   3                  Speed++;
+  42   3                  Speed %= 4; // 4个档
+  43   3                  if (Speed == 0)
+  44   3                      Criterion = 0;
+  45   3                  else if (Speed == 1)
+  46   3                      Criterion = 5;
+  47   3                  else if (Speed == 2)
+  48   3                      Criterion = 50;
+  49   3                  else if (Speed == 3)
+  50   3                      Criterion = 100;
+  51   3              }
+  52   2              NixieTube(1, Speed);
+  53   2          }
+  54   1      }
+C51 COMPILER V9.60.7.0   MAIN                                                              11/13/2023 17:09:25 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    112    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

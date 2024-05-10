@@ -1,0 +1,521 @@
+cscope 15 $HOME\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware"               0000003435
+	@C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\CountSensor.c
+
+1 
+	~"¡m32f10x.h
+"
+
+3 
+	$CouÁS’sÜ
+()
+
+5 
+	`RCC_APB2P”hClockCmd
+(
+RCC_APB2P”h_GPIOB
+, 
+ENABLE
+);
+
+6 
+	`RCC_APB2P”hClockCmd
+(
+RCC_APB2P”h_AFIO
+, 
+ENABLE
+);
+
+8 
+GPIO_In™Ty³Def
+ 
+GPIO_In™SŒuù
+;
+
+9 
+GPIO_In™SŒuù
+.
+GPIO_Mode
+ = 
+GPIO_Mode_IPU
+;
+
+10 
+GPIO_In™SŒuù
+.
+GPIO_Pš
+ = 
+GPIO_Pš_14
+;
+
+11 
+GPIO_In™SŒuù
+.
+GPIO_S³ed
+ = 
+GPIO_S³ed_50MHZ
+;
+
+12 
+	`GPIO_In™
+(
+GPIOB
+, &
+GPIO_In™SŒuù
+);
+
+14 
+	`GPIO_EXTILšeCÚfig
+(
+GPIO_PÜtSourûGPIOB
+, 
+GPIO_PšSourû14
+);
+
+16 
+EXTI_In™Ty³Def
+ 
+EXIT_In™SŒuù
+;
+
+17 
+EXIT_In™SŒuù
+.
+EXTI_Lše
+;
+
+18 
+	`EXTI_In™
+()
+
+19 
+	}
+}
+
+	@C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\CountSensor.h
+
+19 #iâdeà
+__COUNTSENSOR_H__
+
+
+20 
+	#__COUNTSENSOR_H__
+
+
+	)
+
+	@C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\Key.c
+
+1 
+	~"¡m32f10x.h
+"
+
+2 
+	~"D–ay.h
+"
+
+4 
+	$Key_In™
+()
+
+6 
+	`RCC_APB2P”hClockCmd
+(
+RCC_APB2P”h_GPIOB
+, 
+ENABLE
+);
+
+8 
+GPIO_In™Ty³Def
+ 
+GPIO_In™SŒuùu»
+;
+
+9 
+GPIO_In™SŒuùu»
+.
+GPIO_Mode
+ = 
+GPIO_Mode_IPU
+;
+
+10 
+GPIO_In™SŒuùu»
+.
+GPIO_Pš
+ = 
+GPIO_Pš_1
+ | 
+GPIO_Pš_11
+;
+
+11 
+GPIO_In™SŒuùu»
+.
+GPIO_S³ed
+ = 
+GPIO_S³ed_50MHz
+;
+
+12 
+	`GPIO_In™
+(
+GPIOB
+, &
+GPIO_In™SŒuùu»
+);
+
+13 
+	}
+}
+
+15 
+ušt8_t
+ 
+	$Key_G‘Num
+()
+
+17 
+ušt8_t
+ 
+KeyNum
+ = 0;
+
+18 ià(
+	`GPIO_R—dIÅutD©aB™
+(
+GPIOB
+, 
+GPIO_Pš_1
+) == 0)
+
+20 
+	`D–ay_ms
+(20);
+
+21 
+	`GPIO_R—dIÅutD©aB™
+(
+GPIOB
+, 
+GPIO_Pš_1
+) == 0);
+
+22 
+	`D–ay_ms
+(20);
+
+23 
+KeyNum
+ = 1;
+
+25 ià(
+	`GPIO_R—dIÅutD©aB™
+(
+GPIOB
+, 
+GPIO_Pš_11
+) == 0)
+
+27 
+	`D–ay_ms
+(20);
+
+28 
+	`GPIO_R—dIÅutD©aB™
+(
+GPIOB
+, 
+GPIO_Pš_11
+) == 0);
+
+29 
+	`D–ay_ms
+(20);
+
+30 
+KeyNum
+ = 2;
+
+33  
+KeyNum
+;
+
+34 
+	}
+}
+
+	@C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\Key.h
+
+1 #iâdeà
+__KEY_H
+
+
+2 
+	#__KEY_H
+
+
+	)
+
+4 
+Key_In™
+();
+
+5 
+ušt8_t
+ 
+Key_G‘Num
+();
+
+	@C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\LED.c
+
+1 
+	~"¡m32f10x.h
+"
+
+3 
+	$LED_In™
+()
+
+5 
+	`RCC_APB2P”hClockCmd
+(
+RCC_APB2P”h_GPIOA
+, 
+ENABLE
+);
+
+7 
+GPIO_In™Ty³Def
+ 
+GPIO_In™SŒuùu»
+;
+
+8 
+GPIO_In™SŒuùu»
+.
+GPIO_Mode
+ = 
+GPIO_Mode_Out_PP
+;
+
+9 
+GPIO_In™SŒuùu»
+.
+GPIO_Pš
+ = 
+GPIO_Pš_1
+ | 
+GPIO_Pš_2
+;
+
+10 
+GPIO_In™SŒuùu»
+.
+GPIO_S³ed
+ = 
+GPIO_S³ed_50MHz
+;
+
+11 
+	`GPIO_In™
+(
+GPIOA
+, &
+GPIO_In™SŒuùu»
+);
+
+13 
+	`GPIO_S‘B™s
+(
+GPIOA
+, 
+GPIO_Pš_1
+ | 
+GPIO_Pš_2
+);
+
+14 
+	}
+}
+
+16 
+	$LED1_ON
+()
+
+18 
+	`GPIO_Re£tB™s
+(
+GPIOA
+, 
+GPIO_Pš_1
+);
+
+19 
+	}
+}
+
+21 
+	$LED1_OFF
+()
+
+23 
+	`GPIO_S‘B™s
+(
+GPIOA
+, 
+GPIO_Pš_1
+);
+
+24 
+	}
+}
+
+26 
+	$LED1_Tuº
+()
+
+28 ià(
+	`GPIO_R—dOuutD©aB™
+(
+GPIOA
+, 
+GPIO_Pš_1
+) == 0)
+
+30 
+	`GPIO_S‘B™s
+(
+GPIOA
+, 
+GPIO_Pš_1
+);
+
+34 
+	`GPIO_Re£tB™s
+(
+GPIOA
+, 
+GPIO_Pš_1
+);
+
+36 
+	}
+}
+
+38 
+	$LED2_ON
+()
+
+40 
+	`GPIO_Re£tB™s
+(
+GPIOA
+, 
+GPIO_Pš_2
+);
+
+41 
+	}
+}
+
+43 
+	$LED2_OFF
+()
+
+45 
+	`GPIO_S‘B™s
+(
+GPIOA
+, 
+GPIO_Pš_2
+);
+
+46 
+	}
+}
+
+48 
+	$LED2_Tuº
+()
+
+50 ià(
+	`GPIO_R—dOuutD©aB™
+(
+GPIOA
+, 
+GPIO_Pš_2
+) == 0)
+
+52 
+	`GPIO_S‘B™s
+(
+GPIOA
+, 
+GPIO_Pš_2
+);
+
+56 
+	`GPIO_Re£tB™s
+(
+GPIOA
+, 
+GPIO_Pš_2
+);
+
+58 
+	}
+}
+
+	@C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\LED.h
+
+1 #iâdeà
+__LED_H
+
+
+2 
+	#__LED_H
+
+
+	)
+
+4 
+LED_In™
+();
+
+5 
+LED1_ON
+();
+
+6 
+LED1_OFF
+();
+
+7 
+LED1_Tuº
+();
+
+8 
+LED2_ON
+();
+
+9 
+LED2_OFF
+();
+
+10 
+LED2_Tuº
+();
+
+	@
+1
+.
+0
+6
+562
+C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\CountSensor.c
+C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\CountSensor.h
+C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\Key.c
+C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\Key.h
+C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\LED.c
+C:\Users\name\Documents\Workspace\keildata\STM32\½­¿Æ´ó\5-1¶ÔÉäÊ½ºìÍâ´«¸ĞÆ÷\Hardware\LED.h

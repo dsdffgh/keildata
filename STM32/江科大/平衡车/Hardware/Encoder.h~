@@ -1,0 +1,7 @@
+#ifndef __ENCODER_H__
+#define __ENCODER_H__
+
+void Encoder_TIM2_Init(uint16_t psc);
+uint16_t Encoder_Get(void);
+
+#endif

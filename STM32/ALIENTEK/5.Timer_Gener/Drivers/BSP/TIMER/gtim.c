@@ -1,0 +1,63 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  gtim.c
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  3/16/2024 6:10:45 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Theonesssssssss (), whyunotdo@qq.com
+ *   Organization:  
+ *
+ * =====================================================================================
+ */
+
+#include "./BSP/TIMER/gtim.h"
+
+TIM_HandleTypeDef g_timx_pwm_cjy_handle;
+
+/* 通用定时器 PWM 输出初始化函数 */
+void gtim_timx_pwm_chy_init(uint16_t arr, uint16_t psc)
+{
+    --arr;
+    --psc;
+    /* 配置定时器基础工作参数 */
+    g_timx_pwm_cjy_handle.Instance = TIM3;
+    g_timx_pwm_cjy_handle.Init.Prescaler = psc;
+    g_timx_pwm_cjy_handle.Init.Period = arr;
+    HAL_TIM_PWM_Init(&g_timx_pwm_cjy_handle);
+
+    TIM_OC_InitTypeDef timx_oc_pwm_chy;
+    timx_oc_pwm_chy.OCMode = TIM_OCMODE_PWM1;
+    timx_oc_pwm_chy.Pulse = arr >> 4;
+    timx_oc_pwm_chy.OCPolarity = TIM_OCPOLARITY_LOW;
+    HAL_TIM_PWM_ConfigChannel(&g_timx_pwm_cjy_handle, &timx_oc_pwm_chy, TIM_CHANNEL_2);
+    HAL_TIM_PWM_Start(&g_timx_pwm_cjy_handle, TIM_CHANNEL_2);
+}
+
+
+/* 定时器输出 PWM MSP 初始化函数 */
+void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
+{
+
+    if ( htim->Instance == TIM3 ) {
+        GPIO_InitTypeDef gpio_init_struct;
+        __HAL_RCC_GPIOB_CLK_ENABLE();
+        __HAL_RCC_TIM3_CLK_ENABLE();
+
+        gpio_init_struct.Pin = GPIO_PIN_5;
+        gpio_init_struct.Mode = GPIO_MODE_AF_PP;            /* 推挽复用 */
+        gpio_init_struct.Pull = GPIO_PULLUP;                    /* 上拉 */
+        gpio_init_struct.Speed = GPIO_SPEED_FREQ_HIGH;          /* 高速 */
+        HAL_GPIO_Init(GPIOB, &gpio_init_struct); 
+ 
+        // 重映射PB5
+        __HAL_RCC_AFIO_CLK_ENABLE();
+        __HAL_AFIO_REMAP_TIM3_PARTIAL();
+    }
+}
+

@@ -1,0 +1,26 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  key.h
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  3/8/2024 9:27:30 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Theonesssssssss (), whyunotdo@qq.com
+ *   Organization:  
+ *
+ * =====================================================================================
+ */
+
+#ifndef __KEY_H__
+#define __KEY_H__
+
+#include "./SYSTEM/sys/sys.h"
+void key_init();
+uint8_t key_scan();
+
+#endif

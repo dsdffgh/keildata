@@ -1,0 +1,281 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.39.0.0
+Copyright (C) 2023 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 Theonesssssssss, 1, LIC=21E4T-RB8DI-8T53P-MY9QH-LA2NU-D3D4X
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.39.0.0
+Toolchain Path:  D:\Program Files\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.39.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.2.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+D:\ProgramData\OneDrive - st.xatu.edu.cn\文档\Workspace\keildata\STM32\江科大\6-8编码器接口测速\Project.uvprojx
+Project File Date:  05/07/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Program Files\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+assembling startup_stm32f10x_md.s...
+compiling core_cm3.c...
+compiling misc.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_dbgmcu.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_cec.c...
+compiling stm32f10x_crc.c...
+compiling stm32f10x_dac.c...
+compiling stm32f10x_i2c.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_can.c...
+compiling stm32f10x_iwdg.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_sdio.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_wwdg.c...
+compiling Delay.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_tim.c...
+compiling sys.c...
+System\Sys\sys.c(58): warning:  #1-D: last line of file ends without a newline
+  }
+System\Sys\sys.c: 1 warning, 0 errors
+compiling Key.c...
+compiling usart.c...
+System\Usart\usart.c(22): warning:  #940-D: missing return statement at end of non-void function "_sys_exit" 
+  } 
+System\Usart\usart.c: 1 warning, 0 errors
+compiling Encoder.c...
+compiling LED.c...
+compiling Timer.c...
+compiling PWM.c...
+compiling MPU6050.c...
+compiling OLED.c...
+compiling motor.c...
+compiling MPU6050_exti.c...
+compiling PID.c...
+compiling inv_mpu_dmp_motion_driver.c...
+compiling stm32f10x_it.c...
+compiling mpuiic.c...
+Hardware\MPU6050\mpuiic.c(8): warning:  #223-D: function "delay_us" declared implicitly
+  	delay_us(2);
+Hardware\MPU6050\mpuiic.c: 1 warning, 0 errors
+compiling inv_mpu.c...
+Hardware\MPU6050\eMPL\inv_mpu.c(696): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->int_enable, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(708): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->int_enable, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(727): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+          if (i2c_read(st.hw->addr, ii, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(747): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      return i2c_read(st.hw->addr, reg, 1, data);
+Hardware\MPU6050\eMPL\inv_mpu.c(769): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(771): warning:  #223-D: function "delay_ms" declared implicitly
+      delay_ms(100);
+Hardware\MPU6050\eMPL\inv_mpu.c(775): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(780): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->accel_offs, 6, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(796): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+          if (i2c_read(st.hw->addr, st.reg->prod_id, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(905): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(934): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(985): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->raw_gyro, 6, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1008): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->raw_accel, 6, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1032): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->temp, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1061): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, 3, 3, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1071): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, 0x06, 6, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1089): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, 0x06, 6, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1106): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->int_enable, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1108): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->fifo_en, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1110): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1115): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1117): warning:  #223-D: function "delay_ms" declared implicitly
+          delay_ms(50);
+Hardware\MPU6050\eMPL\inv_mpu.c(1121): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1127): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->int_enable, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1130): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->fifo_en, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1134): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1140): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1142): warning:  #223-D: function "delay_ms" declared implicitly
+          delay_ms(50);
+Hardware\MPU6050\eMPL\inv_mpu.c(1147): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->int_enable, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1149): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->fifo_en, 1, &st.chip_cfg.fifo_enable))
+Hardware\MPU6050\eMPL\inv_mpu.c(1213): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->gyro_cfg, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1278): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->accel_cfg, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1347): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->lpf, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1400): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->rate_div, 1, &data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1611): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 1, &data)) {
+Hardware\MPU6050\eMPL\inv_mpu.c(1626): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_2, 1, &data)) {
+Hardware\MPU6050\eMPL\inv_mpu.c(1666): warning:  #223-D: function "delay_ms" declared implicitly
+      delay_ms(50);
+Hardware\MPU6050\eMPL\inv_mpu.c(1680): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->dmp_int_status, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1730): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->fifo_count_h, 2, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1738): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+          if (i2c_read(st.hw->addr, st.reg->int_status, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1747): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->fifo_r_w, packet_size, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1795): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->fifo_count_h, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1804): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+          if (i2c_read(st.hw->addr, st.reg->int_status, 1, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1812): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->fifo_r_w, length, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(1831): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+          if (i2c_read(st.hw->addr, st.reg->user_ctrl, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1834): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1836): warning:  #223-D: function "delay_ms" declared implicitly
+          delay_ms(3);
+Hardware\MPU6050\eMPL\inv_mpu.c(1842): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->int_pin_cfg, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1846): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+          if (i2c_read(st.hw->addr, st.reg->user_ctrl, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1852): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1854): warning:  #223-D: function "delay_ms" declared implicitly
+          delay_ms(3);
+Hardware\MPU6050\eMPL\inv_mpu.c(1861): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->int_pin_cfg, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1899): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->int_pin_cfg, 1, &tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1910): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, 0x0D, 4, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(1957): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, 0x0D, 3, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(2043): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 2, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2045): warning:  #223-D: function "delay_ms" declared implicitly
+      delay_ms(200);
+Hardware\MPU6050\eMPL\inv_mpu.c(2047): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->int_enable, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2049): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->fifo_en, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2051): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2053): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->i2c_mst, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2055): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2058): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2062): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->lpf, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2065): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->rate_div, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2071): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->gyro_cfg, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2078): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->accel_cfg, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2085): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->user_ctrl, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2089): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->fifo_en, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2093): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->fifo_en, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2096): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->fifo_count_h, 2, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2106): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+          if (i2c_read(st.hw->addr, st.reg->fifo_r_w, MAX_PACKET_LENGTH, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2294): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->bank_sel, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(2296): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->mem_r_w, length, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2327): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->bank_sel, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(2329): warning:  #223-D: function "MPU_Read_Len" declared implicitly
+      if (i2c_read(st.hw->addr, st.reg->mem_r_w, length, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2370): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+      if (i2c_write(st.hw->addr, st.reg->prgm_start_h, 2, tmp))
+Hardware\MPU6050\eMPL\inv_mpu.c(2400): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          i2c_write(st.hw->addr, 0x23, 1, &tmp);
+Hardware\MPU6050\eMPL\inv_mpu.c(2410): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          i2c_write(st.hw->addr, 0x23, 1, &tmp);
+Hardware\MPU6050\eMPL\inv_mpu.c(2715): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->lpf, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2726): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->int_enable, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2732): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->motion_thr, 2, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2736): warning:  #223-D: function "delay_ms" declared implicitly
+          delay_ms(5);
+Hardware\MPU6050\eMPL\inv_mpu.c(2738): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->accel_cfg, 1, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2752): warning:  #223-D: function "MPU_Write_Len" declared implicitly
+          if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 2, data))
+Hardware\MPU6050\eMPL\inv_mpu.c(2984): warning:  #940-D: missing return statement at end of non-void function "mpu_dmp_init" 
+  }
+Hardware\MPU6050\eMPL\inv_mpu.c: 86 warnings, 0 errors
+compiling main.c...
+linking...
+.\Objects\Project.axf: Error: L6218E: Undefined symbol MPU_Read_Len (referred from inv_mpu.o).
+.\Objects\Project.axf: Error: L6218E: Undefined symbol MPU_Write_Len (referred from inv_mpu.o).
+.\Objects\Project.axf: Error: L6218E: Undefined symbol delay_ms (referred from inv_mpu.o).
+.\Objects\Project.axf: Error: L6218E: Undefined symbol delay_us (referred from mpuiic.o).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 4 error messages.
+".\Objects\Project.axf" - 4 Error(s), 89 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil::STM32F1xx_DFP@2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  D:/Users/Theonesssssssss/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
