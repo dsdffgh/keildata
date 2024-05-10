@@ -22,7 +22,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "Sys/sys.h"
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h"
+#include "mpu6050.h"
+#include "delay.h"
+#include "usart.h"
 
 #define MPU6050                     // 定义我们使用的传感器为MPU6050
 #define MOTION_DRIVER_TARGET_MSP430 // 定义驱动部分,采用MSP430的驱动(移植到STM32F1)
@@ -46,7 +50,6 @@
 // #include "msp430_interrupt.h"
 
 #define i2c_write MPU_Write_Len
-//#define i2c_read MPU6050_ReadRegs
 #define i2c_read MPU_Read_Len
 #define delay_ms delay_ms
 #define get_ms mget_ms
@@ -805,17 +808,9 @@ int mpu_init(void)
     }
     else
     {
-        if(MPU6050_ReadRegs(st.hw->addr,st.reg->prod_id, 1, data))
-        //if (i2c_read(st.hw->addr, st.reg->prod_id, 1, data))
+        if (i2c_read(st.hw->addr, st.reg->prod_id, 1, data))
             return -1;
-        //*data = MPU6050_ReadReg(st.reg->prod_id); // 获取MPU6050的ID号
         rev = data[0] & 0x0F;
-        /*DEbug*/
-        uint8_t DataH = MPU6050_ReadReg(MPU6050_PWR_MGMT_1);
-        uint8_t DataL;
-        i2c_read(st.hw->addr, MPU6050_PWR_MGMT_1, 1, &DataL);
-        uint8_t Data1 = MPU6050_ReadReg(0x0c);
-        /*DEbug*/
         if (!rev)
         {
             log_e("Product ID read as 0 indicates device is either "
@@ -2426,7 +2421,7 @@ int mpu_load_firmware(unsigned short length, const unsigned char *firmware,
     unsigned short ii;
     unsigned short this_write;
     /* Must divide evenly into st.hw->bank_size to avoid bank crossings. */
-#define LOAD_CHUNK (1)
+#define LOAD_CHUNK (16)
     unsigned char cur[LOAD_CHUNK], tmp[2];
 
     if (st.chip_cfg.dmp_loaded)
@@ -2440,28 +2435,8 @@ int mpu_load_firmware(unsigned short length, const unsigned char *firmware,
         this_write = min(LOAD_CHUNK, length - ii);
         if (mpu_write_mem(ii, this_write, (unsigned char *)&firmware[ii]))
             return -1;
-        /*DEBUG start*/
-
-
-        for (unsigned short i = 0; i < this_write; i++)
-        {
-            OLED_ShowHexNum((i % 4) + 1, ((i / 4) * 2) + 1, firmware[i], 2);
-
-        }
-
-        //OLED_Clear();
-        /*DEBUG end*/
         if (mpu_read_mem(ii, this_write, cur))
             return -1;
-        /*DEBUG start*/
-        for (unsigned short i = 0; i < this_write; i++)
-        {
-            OLED_ShowHexNum((i % 4) + 1, ((i / 4) * 2) + 9, cur[i], 2);
-
-        }
-
-        //OLED_Clear();
-        /*DEBUG end*/
         if (memcmp(firmware + ii, cur, this_write))
             return -2;
     }
@@ -3105,7 +3080,6 @@ u8 mpu_dmp_init(void)
         return 10;
     return 0;
 }
-
 // 得到dmp处理后的数据(注意,本函数需要比较多堆栈,局部变量有点多)
 // pitch:俯仰角 精度:0.1°   范围:-90.0° <---> +90.0°
 // roll:横滚角  精度:0.1°   范围:-180.0°<---> +180.0°
