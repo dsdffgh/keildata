@@ -1,8 +1,6 @@
 #ifndef  _MOTOR_H
 #define  _MOTOR_H
 
-#include "Sys/sys.h" 
-#include "PWM/PWM.h"
 
 #define Ain1  PBout(14)
 #define Ain2  PBout(15)

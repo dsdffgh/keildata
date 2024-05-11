@@ -1,11 +1,9 @@
-#include "mpu6050.h"
-#include "sys.h"
-#include "delay.h"
-#include "usart.h"
-/**************************************************************************
-作  者 ：大鱼电子
-淘宝地址：https://shop119207236.taobao.com
-**************************************************************************/
+#include "Sys/sys.h"
+#include "MPU6050/mpuiic.h"
+#include "MPU6050/mpu6050.h"
+#include "MPU6050/MPU6050_Reg.h"
+#include "MPU6050/eMPL/inv_mpu.h"
+
 // 初始化MPU6050
 // 返回值:0,成功
 // 其他,错误代码
@@ -28,7 +26,7 @@ u8 MPU_Init(void)
 	{
 		MPU_Write_Byte(MPU_PWR_MGMT1_REG, 0X01); // 设置CLKSEL,PLL X轴为参考
 		MPU_Write_Byte(MPU_PWR_MGMT2_REG, 0X00); // 加速度与陀螺仪都工作
-		MPU_Set_Rate(200);						 // 设置采样率为50Hz
+		MPU_Set_Rate(100);						 // 设置采样率为100Hz,周期为10ms
 	}
 	else
 		return 1;
@@ -110,6 +108,7 @@ u8 MPU_Get_Gyroscope(short *gx, short *gy, short *gz)
 	res = MPU_Read_Len(MPU_ADDR, MPU_GYRO_XOUTH_REG, 6, buf);
 	if (res == 0)
 	{
+		*gx = 12;
 		*gx = ((u16)buf[0] << 8) | buf[1];
 		*gy = ((u16)buf[2] << 8) | buf[3];
 		*gz = ((u16)buf[4] << 8) | buf[5];

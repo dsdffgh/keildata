@@ -39,15 +39,14 @@
 .\objects\motor.o: .\Hardware\KEY/key.h
 .\objects\motor.o: .\Hardware\PWM/pwm.h
 .\objects\motor.o: .\Hardware\Timer/timer.h
-.\objects\motor.o: .\Hardware\Motor/motor.h
 .\objects\motor.o: .\Hardware\Control/PID.h
-.\objects\motor.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\motor.o: .\Hardware\Encoder/encoder.h
 .\objects\motor.o: .\Hardware\MPU6050/mpu6050.h
 .\objects\motor.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
-.\objects\motor.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\motor.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\motor.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\motor.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\motor.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\motor.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
 .\objects\motor.o: .\Hardware\MPU6050/eMPL/dmpKey.h
 .\objects\motor.o: .\Hardware\MPU6050/eMPL/dmpmap.h

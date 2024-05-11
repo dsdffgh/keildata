@@ -43,13 +43,13 @@
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\Timer/timer.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\Motor/motor.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\Control/PID.h
-.\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\Encoder/encoder.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/mpu6050.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
-.\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/eMPL/dmpKey.h
 .\objects\inv_mpu_dmp_motion_driver.o: .\Hardware\MPU6050/eMPL/dmpmap.h

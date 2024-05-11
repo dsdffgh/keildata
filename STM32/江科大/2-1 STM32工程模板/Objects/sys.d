@@ -40,13 +40,13 @@
 .\objects\sys.o: .\Hardware\Timer/timer.h
 .\objects\sys.o: .\Hardware\Motor/motor.h
 .\objects\sys.o: .\Hardware\Control/PID.h
-.\objects\sys.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\sys.o: .\Hardware\Encoder/encoder.h
 .\objects\sys.o: .\Hardware\MPU6050/mpu6050.h
 .\objects\sys.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
-.\objects\sys.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\sys.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\sys.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\sys.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\sys.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\sys.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
 .\objects\sys.o: .\Hardware\MPU6050/eMPL/dmpKey.h
 .\objects\sys.o: .\Hardware\MPU6050/eMPL/dmpmap.h

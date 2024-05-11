@@ -720,11 +720,6 @@
               <FilePath>.\Hardware\Motor\motor.c</FilePath>
             </File>
             <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\MPU6050\MPU6050.c</FilePath>
-            </File>
-            <File>
               <FileName>MPU6050_exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Hardware\MPU6050\MPU6050_exti.c</FilePath>
@@ -768,6 +763,11 @@
               <FileName>LED.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Hardware\LED\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\MPU6050\mpu6050.c</FilePath>
             </File>
           </Files>
         </Group>

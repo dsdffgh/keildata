@@ -1,4 +1,5 @@
 .\objects\delay.o: System\Delay\Delay.c
+.\objects\delay.o: .\System\Sys/sys.h
 .\objects\delay.o: .\Start\stm32f10x.h
 .\objects\delay.o: .\Start\core_cm3.h
 .\objects\delay.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -28,4 +29,27 @@
 .\objects\delay.o: .\Library\stm32f10x_usart.h
 .\objects\delay.o: .\Library\stm32f10x_wwdg.h
 .\objects\delay.o: .\Library\misc.h
-.\objects\delay.o: .\System\Delay/Delay.h
+.\objects\delay.o: .\System\Delay/delay.h
+.\objects\delay.o: .\System\Usart/usart.h
+.\objects\delay.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\delay.o: .\System\Sys/sys.h
+.\objects\delay.o: .\Hardware\LED/LED.h
+.\objects\delay.o: .\Hardware\OLED/OLED.h
+.\objects\delay.o: .\Hardware\KEY/key.h
+.\objects\delay.o: .\Hardware\PWM/pwm.h
+.\objects\delay.o: .\Hardware\Timer/timer.h
+.\objects\delay.o: .\Hardware\Motor/motor.h
+.\objects\delay.o: .\Hardware\Control/PID.h
+.\objects\delay.o: .\Hardware\Encoder/encoder.h
+.\objects\delay.o: .\Hardware\MPU6050/mpu6050.h
+.\objects\delay.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
+.\objects\delay.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\delay.o: .\Hardware\MPU6050/MPU6050_Reg.h
+.\objects\delay.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\delay.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
+.\objects\delay.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
+.\objects\delay.o: .\Hardware\MPU6050/eMPL/dmpKey.h
+.\objects\delay.o: .\Hardware\MPU6050/eMPL/dmpmap.h
+.\objects\delay.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\delay.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\delay.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

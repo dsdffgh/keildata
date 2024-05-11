@@ -32,10 +32,10 @@ void EXTI9_5_IRQHandler(void)
 
       /* 读取角度 */
       mpu_dmp_get_data(&Pitch, &Roll, &Yaw);
-      MPU6050_GETGyroscope(&gyro_X, &gyro_Y, &gyro_Z);  // 读取角速度
-      MPU6050_GETAccelerometer(&acc_X, &acc_Y, &acc_Z); // 读取加速度
-//			MPU_Get_Gyroscope(&gyro_X, &gyro_Y, &gyro_Z);
-//			MPU_Get_Accelerometer(&acc_X, &acc_Y, &acc_Z);
+//      MPU6050_GETGyroscope(&gyro_X, &gyro_Y, &gyro_Z);  // 读取角速度
+//      MPU6050_GETAccelerometer(&acc_X, &acc_Y, &acc_Z); // 读取加速度
+			MPU_Get_Gyroscope(&gyro_X, &gyro_Y, &gyro_Z);
+			MPU_Get_Accelerometer(&acc_X, &acc_Y, &acc_Z);
 
       /* 进入闭环控制 ，计算控制输出量 */
       Velocity_out = VelocityPidCalc(Target_Speed, Encoder_left + Encoder_right);

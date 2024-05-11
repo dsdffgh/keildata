@@ -1,4 +1,5 @@
 .\objects\encoder.o: Hardware\Encoder\Encoder.c
+.\objects\encoder.o: .\System\Sys/sys.h
 .\objects\encoder.o: .\Start\stm32f10x.h
 .\objects\encoder.o: .\Start\core_cm3.h
 .\objects\encoder.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -28,8 +29,6 @@
 .\objects\encoder.o: .\Library\stm32f10x_usart.h
 .\objects\encoder.o: .\Library\stm32f10x_wwdg.h
 .\objects\encoder.o: .\Library\misc.h
-.\objects\encoder.o: .\Hardware\Encoder/Encoder.h
-.\objects\encoder.o: .\System\Sys/sys.h
 .\objects\encoder.o: .\System\Delay/delay.h
 .\objects\encoder.o: .\System\Usart/usart.h
 .\objects\encoder.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
@@ -41,13 +40,13 @@
 .\objects\encoder.o: .\Hardware\Timer/timer.h
 .\objects\encoder.o: .\Hardware\Motor/motor.h
 .\objects\encoder.o: .\Hardware\Control/PID.h
-.\objects\encoder.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\encoder.o: .\Hardware\Encoder/encoder.h
 .\objects\encoder.o: .\Hardware\MPU6050/mpu6050.h
 .\objects\encoder.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
-.\objects\encoder.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\encoder.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\encoder.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\encoder.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\encoder.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\encoder.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
 .\objects\encoder.o: .\Hardware\MPU6050/eMPL/dmpKey.h
 .\objects\encoder.o: .\Hardware\MPU6050/eMPL/dmpmap.h

@@ -1,6 +1,5 @@
 #ifndef __MPU6050_H
-#define __MPU6050_H
-#include "mpuiic.h"   												  	  
+#define __MPU6050_H			  	  
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK MiniSTM32F103开发板 
@@ -13,7 +12,7 @@
 //Copyright(C) 广州市星翼电子科技有限公司 2009-2019
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 
-  
+  #include "Sys/sys.h"
 //#define MPU_ACCEL_OFFS_REG		0X06	//accel_offs寄存器,可读取版本号,寄存器手册未提到
 //#define MPU_PROD_ID_REG			0X0C	//prod id寄存器,在寄存器手册未提到
 #define MPU_SELF_TESTX_REG		0X0D	//自检寄存器X

@@ -1,5 +1,4 @@
 .\objects\mpu6050_jkd_i2c.o: Hardware\MPU6050\mpu6050_jkd_i2c.c
-.\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/MPU6050.h
 .\objects\mpu6050_jkd_i2c.o: .\System\Sys/sys.h
 .\objects\mpu6050_jkd_i2c.o: .\Start\stm32f10x.h
 .\objects\mpu6050_jkd_i2c.o: .\Start\core_cm3.h
@@ -41,17 +40,16 @@
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\Timer/timer.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\Motor/motor.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\Control/PID.h
-.\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\Encoder/encoder.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/mpu6050.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
-.\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/eMPL/dmpKey.h
 .\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/eMPL/dmpmap.h
 .\objects\mpu6050_jkd_i2c.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\mpu6050_jkd_i2c.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\mpu6050_jkd_i2c.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-.\objects\mpu6050_jkd_i2c.o: .\Hardware\MPU6050/MPU6050_exti.h

@@ -1,5 +1,4 @@
-#include "MPU6050/MPU6050.h"
-#include "MPU6050/MPU6050_exti.h"
+#include "Sys/sys.h"
 
 /**
  * 函    数：MPU6050等待事件

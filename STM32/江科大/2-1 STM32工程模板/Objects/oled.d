@@ -1,4 +1,5 @@
 .\objects\oled.o: Hardware\OLED\OLED.c
+.\objects\oled.o: .\System\Sys/sys.h
 .\objects\oled.o: .\Start\stm32f10x.h
 .\objects\oled.o: .\Start\core_cm3.h
 .\objects\oled.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -28,9 +29,6 @@
 .\objects\oled.o: .\Library\stm32f10x_usart.h
 .\objects\oled.o: .\Library\stm32f10x_wwdg.h
 .\objects\oled.o: .\Library\misc.h
-.\objects\oled.o: .\Hardware\OLED/OLED_Font.h
-.\objects\oled.o: .\Hardware\OLED/OLED.h
-.\objects\oled.o: .\System\Sys/sys.h
 .\objects\oled.o: .\System\Delay/delay.h
 .\objects\oled.o: .\System\Usart/usart.h
 .\objects\oled.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
@@ -42,16 +40,17 @@
 .\objects\oled.o: .\Hardware\Timer/timer.h
 .\objects\oled.o: .\Hardware\Motor/motor.h
 .\objects\oled.o: .\Hardware\Control/PID.h
-.\objects\oled.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\oled.o: .\Hardware\Encoder/encoder.h
 .\objects\oled.o: .\Hardware\MPU6050/mpu6050.h
 .\objects\oled.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
-.\objects\oled.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\oled.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\oled.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\oled.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\oled.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\oled.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
 .\objects\oled.o: .\Hardware\MPU6050/eMPL/dmpKey.h
 .\objects\oled.o: .\Hardware\MPU6050/eMPL/dmpmap.h
 .\objects\oled.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\oled.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\oled.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\oled.o: .\Hardware\OLED/oledfont.h

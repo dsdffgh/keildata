@@ -1,4 +1,4 @@
-.\objects\mpu6050.o: Hardware\MPU6050\MPU6050.c
+.\objects\mpu6050.o: Hardware\MPU6050\mpu6050.c
 .\objects\mpu6050.o: .\System\Sys/sys.h
 .\objects\mpu6050.o: .\Start\stm32f10x.h
 .\objects\mpu6050.o: .\Start\core_cm3.h
@@ -40,13 +40,13 @@
 .\objects\mpu6050.o: .\Hardware\Timer/timer.h
 .\objects\mpu6050.o: .\Hardware\Motor/motor.h
 .\objects\mpu6050.o: .\Hardware\Control/PID.h
-.\objects\mpu6050.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\mpu6050.o: .\Hardware\Encoder/encoder.h
 .\objects\mpu6050.o: .\Hardware\MPU6050/mpu6050.h
 .\objects\mpu6050.o: .\Hardware\MPU6050/MPU6050_jkd_i2c.h
-.\objects\mpu6050.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\mpu6050.o: .\Hardware\MPU6050/MPU6050_exti.h
+.\objects\mpu6050.o: .\Hardware\MPU6050/MPU6050_Reg.h
 .\objects\mpu6050.o: .\Hardware\MPU6050/mpuiic.h
+.\objects\mpu6050.o: .\Hardware\MPU6050/eMPL/inv_mpu.h
 .\objects\mpu6050.o: .\Hardware\MPU6050/eMPL/inv_mpu_dmp_motion_driver.h
 .\objects\mpu6050.o: .\Hardware\MPU6050/eMPL/dmpKey.h
 .\objects\mpu6050.o: .\Hardware\MPU6050/eMPL/dmpmap.h

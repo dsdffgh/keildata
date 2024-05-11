@@ -1,9 +1,6 @@
-#ifndef __MPU6050_H
-#define __MPU6050_H
+#ifndef __MPU6050_JKD_H
+#define __MPU6050_JKD_H
 
-#include "Sys/sys.h"
-#include "MPU6050/MPU6050_Reg.h"
-#include "MPU6050/eMPL/inv_mpu.h"
 
 #define MPU6050_ADDRESS 0xD0 // MPU6050的I2C从机地址
 #define MPU6050_GPIO_CLK RCC_APB2Periph_GPIOB
