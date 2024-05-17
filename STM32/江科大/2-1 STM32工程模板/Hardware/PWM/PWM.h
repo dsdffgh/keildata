@@ -10,6 +10,8 @@
 #define TIM1_CHA1 GPIO_Pin_8
 #define TIM1_CHA4 GPIO_Pin_11
 
+#define PWMA   TIM1->CCR1  //PA8
+#define PWMB   TIM1->CCR4  //PA11
 // 限幅量
 #define PWM_MAX  7200
 #define PWM_MIN  -7200

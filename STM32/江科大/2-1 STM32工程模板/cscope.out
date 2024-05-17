@@ -1,4 +1,4 @@
-cscope 15 d:\ProgramData\OneDrive - st.xatu.edu.cn\Œƒµµ\Workspace\keildata\STM32\Ω≠ø∆¥Û\2-1 STM32π§≥Ãƒ£∞Â"               0000963905
+cscope 15 d:\ProgramData\OneDrive - st.xatu.edu.cn\Œƒµµ\Workspace\keildata\STM32\Ω≠ø∆¥Û\2-1 STM32π§≥Ãƒ£∞Â"               0000964227
 	@Hardware/Control/PID.c
 
 1 
@@ -193,7 +193,7 @@ MŸo1
 MŸo2
 );
 
-49 
+50 
 	`Lﬂd_MŸ‹
 (
 MŸo1
@@ -201,11 +201,11 @@ MŸo1
 MŸo2
 );
 
-52 
+53 
 	}
 }
 
-62 
+63 
 	$VîtiˇlPidCÆc
 (
 Med
@@ -215,11 +215,11 @@ AngÀ
 Gyro_Y
 )
 
-64 
+65 
 PWM_out
 ;
 
-65 
+66 
 PWM_out
  = 
 Vîtiˇl_Kp
@@ -233,15 +233,15 @@ Vîtiˇl_Kd
 Gyro_Y
  - 0);
 
-66  
+67  
 PWM_out
 ;
 
-67 
+68 
 	}
 }
 
-74 
+75 
 	$VñocôyPidCÆc
 (c⁄° 
 T¨gë
@@ -249,27 +249,27 @@ T¨gë
 ªÆS≥ed
 )
 
-76 
+77 
 PWM_out
 ;
 
-77 
+78 
 Encodî_îr‹
 ;
 
-78 
+79 
 Encodî_îr‹_œ°
 ;
 
-79 
+80 
 Encodî_îr‹_sum
 ;
 
-80 
+81 
 Encodî_îr_tmp
 ;
 
-81 
+82 
 Encodî_îr_tmp
  = (
 ªÆS≥ed
@@ -277,7 +277,7 @@ Encodî_îr_tmp
 T¨gë
 );
 
-84 
+85 
 Encodî_îr‹
  = 
 LowPass_ex≥r
@@ -287,19 +287,19 @@ Encodî_îr‹_œ°
 Encodî_îr_tmp
 ;
 
-85 
+86 
 Encodî_îr‹_œ°
  = 
 Encodî_îr‹
 ;
 
-87 
+88 
 Encodî_îr‹_sum
  +
 Encodî_îr‹
 ;
 
-88 
+89 
 Encodî_îr‹_sum
  = Encodî_îr‹_sum > 
 Limô_Uµ≥r
@@ -307,7 +307,7 @@ Limô_Uµ≥r
 Limô_Lowî
  ? Limit_Lower : Encoder_error_sum);
 
-90 
+91 
 PWM_out
  = 
 Vñocôy_Kp
@@ -319,25 +319,25 @@ Vñocôy_Ki
 Encodî_îr‹_sum
 ;
 
-92  
+93  
 PWM_out
 ;
 
-93 
+94 
 	}
 }
 
-95 
+96 
 	$Tu∫PidCÆc
 (
 Gyro_z
 )
 
-97  ((-0.6Ë* 
+98  ((-0.6Ë* 
 Gyro_z
 );
 
-98 
+99 
 	}
 }
 
@@ -422,7 +422,7 @@ GPIO_InôSåu˘uª
 .
 GPIO_Mode
  = 
-GPIO_Mode_IPU
+GPIO_Mode_IN_FLOATING
 ;
 
 18 
@@ -430,9 +430,9 @@ GPIO_InôSåu˘uª
 .
 GPIO_Pö
  = 
-GPIO_Pö_6
+GPIO_Pö_0
  | 
-GPIO_Pö_7
+GPIO_Pö_1
 ;
 
 19 
@@ -477,13 +477,15 @@ TIM_Cou¡îMode_Up
 TIM_TimeBa£InôSåu˘uª
 .
 TIM_Pîiod
- = 65536 - 1;
+ = 
+ENCODER_TIM_PERIOD
+;
 
 27 
 TIM_TimeBa£InôSåu˘uª
 .
 TIM_PªsˇÀr
- = 1 - 1;
+ = 0x0;
 
 28 
 TIM_TimeBa£InôSåu˘uª
@@ -650,7 +652,7 @@ ENABLE
 89 
 	`RCC_APB2PîùhClockCmd
 (
-RCC_APB2Pîùh_GPIOA
+RCC_APB2Pîùh_GPIOB
 , 
 ENABLE
 );
@@ -666,7 +668,7 @@ GPIO_InôSåu˘uª
 .
 GPIO_Mode
  = 
-GPIO_Mode_IPU
+GPIO_Mode_IN_FLOATING
 ;
 
 94 
@@ -690,7 +692,7 @@ GPIO_S≥ed_50MHz
 96 
 	`GPIO_Inô
 (
-GPIOA
+GPIOB
 , &
 GPIO_InôSåu˘uª
 );
@@ -885,21 +887,29 @@ __ENCODER_H__
 
 	)
 
+3 
+	#ENCODER_TIM_PERIOD
+ (
+u16
+)(65535)
+
 4 
-Encodî_TIM2_Inô
+	`Encodî_TIM2_Inô
 ();
 
 5 
-Encodî_TIM4_Inô
+	`Encodî_TIM4_Inô
 ();
 
 6 
 öt16_t
  
-Encodî_Gë
+	`Encodî_Gë
 (
 TIMx
 );
+
+	)
 
 7 
 TIM2_IRQH™dÀr
@@ -24178,14 +24188,12 @@ Aö2
  = 1;
 
 55 
-	`TIM_SëCom∑ª1
-(
-TIM1
-, 
+PWMA
+ = 
 	`abs
 (
 mŸo1_pwm
-));
+);
 
 58 i‡(
 mŸo2_pwm
@@ -24204,16 +24212,46 @@ Bö2
  = 1;
 
 63 
-	`TIM_SëCom∑ª4
-(
-TIM1
-, 
+PWMB
+ = 
 	`abs
 (
 mŸo2_pwm
-));
+);
 
 64 
+	}
+}
+
+71 
+	$Tu∫_Off
+(
+™gÀ
+)
+
+73 if(
+™gÀ
+<-
+FÆlAngÀ
+||angle>FallAngle)
+
+75 
+MŸo1
+=0;
+
+76 
+MŸo2
+=0;
+
+77 
+Êag_ÁŒ
+=1;
+
+80 
+Êag_ÁŒ
+=0;
+
+81 
 	}
 }
 
@@ -24232,16 +24270,16 @@ _MOTOR_H
 5 
 	#Aö1
  
-	`PBout
-(14)
+	`PAout
+(4)
 
 	)
 
 6 
 	#Aö2
  
-	`PBout
-(15)
+	`PAout
+(5)
 
 	)
 
@@ -24249,7 +24287,7 @@ _MOTOR_H
 	#Bö1
  
 	`PBout
-(13)
+(14)
 
 	)
 
@@ -24257,7 +24295,7 @@ _MOTOR_H
 	#Bö2
  
 	`PBout
-(12)
+(15)
 
 	)
 
@@ -24296,7 +24334,7 @@ GPIO_Pö_5
 15 
 	#MOTOR2_DIR_GPIO
  
-GPIOA
+GPIOB
 
 
 	)
@@ -24304,7 +24342,7 @@ GPIOA
 16 
 	#MOTOR2_DIR_GPIO_CLK
  
-RCC_APB2Pîùh_GPIOA
+RCC_APB2Pîùh_GPIOB
 
 
 	)
@@ -24312,7 +24350,7 @@ RCC_APB2Pîùh_GPIOA
 17 
 	#MOTOR2_DIR_FORWARD_PIN
  
-GPIO_Pö_4
+GPIO_Pö_14
 
 
 	)
@@ -24320,16 +24358,22 @@ GPIO_Pö_4
 18 
 	#MOTOR2_DIR_BACKWARD_PIN
  
-GPIO_Pö_5
+GPIO_Pö_15
 
 
 	)
 
-20 
+20 
+	#FÆlAngÀ
+ 40
+
+	)
+
+22 
 MŸ‹_Inô
 ();
 
-21 
+23 
 Limô_MŸ‹
 (*
 mŸoA
@@ -24337,18 +24381,24 @@ mŸoA
 mŸoB
 );
 
-22 
+24 
 abs
 (
 p
 );
 
-23 
+25 
 Lﬂd_MŸ‹
 (
 mŸo1
 ,
 mŸo2
+);
+
+26 
+Tu∫_Off
+(
+™gÀ
 );
 
 	@Hardware/OLED/OLED.h
@@ -27209,19 +27259,35 @@ GPIO_Pö_11
 
 	)
 
+13 
+	#PWMA
+ 
+TIM1
+->
+CCR1
+
+
 14 
+	#PWMB
+ 
+TIM1
+->
+CCR4
+
+
+16 
 	#PWM_MAX
  7200
 
 	)
 
-15 
+17 
 	#PWM_MIN
  -7200
 
 	)
 
-17 
+19 
 PWM_Inô
 (
 uöt16_t
@@ -27231,7 +27297,7 @@ uöt16_t
 psc
 );
 
-18 
+20 
 PWM_SëCom∑ª3
 (
 uöt16_t
@@ -152919,6 +152985,10 @@ uöt8_t
 	`OLED_Inô
 ();
 
+21 
+	`NVIC_C⁄figuøti⁄
+();
+
 22 
 	`OLED_CÀ¨
 ();
@@ -152931,11 +153001,39 @@ uöt8_t
 	`mpu_dmp_öô
 ();
 
-33 
-	`OLED_ShowSåög
-(1, 7, "Speed:", 5);
+26 
+	`MPU6050_EXTI_Inô
+();
 
-45 
+27 
+	`Encodî_TIM2_Inô
+();
+
+28 
+	`Encodî_TIM4_Inô
+();
+
+29 
+	`MŸ‹_Inô
+();
+
+30 
+	`PWM_Inô
+(0, 7200);
+
+31 
+	`dñay_ms
+(1000);
+
+32 
+	`dñay_ms
+(1000);
+
+35 
+	`u¨t1_öô
+(9600);
+
+42 
 	`MPU_Gë_Gyrosc›e
 (&
 gyro_X
@@ -152943,9 +153041,7 @@ gyro_X
 gyro_Y
 , &
 gyro_Z
-);
-
-46 
+); 
 	`MPU_Gë_Ac˚Àromëî
 (&
 acc_X
@@ -152956,62 +153052,38 @@ acc_Z
 );
 
 47 
-	`OLED_ShowSåög
-(7, 1, "gyro", 4);
-
-48 
-	`OLED_ShowSåög
-(70, 1, "acc", 3);
-
-49 
-	`OLED_Flﬂt
-(2, 1, 
-gyro_X
-,1);
-
-50 
-	`OLED_Flﬂt
-(3, 1, 
-gyro_Y
-,1);
+	`mpu_dmp_gë_d©a
+(&
+Pôch
+, &
+Rﬁl
+, &
+Yaw
+);
 
 51 
-	`OLED_Flﬂt
-(4, 1, 
-gyro_Z
-,1);
-
-52 
-	`OLED_Flﬂt
-(2, 66, 
-acc_X
-, 1);
+	`¥ötf
+("%.2f\n",
+Pôch
+);
 
 53 
-	`OLED_Flﬂt
-(3, 66, 
-acc_Y
-, 1);
-
-54 
-	`OLED_Flﬂt
-(4, 66, 
-acc_Z
-, 1);
-
-55 
-S≥ed
+Encodî_À·
  = 
 	`Encodî_Gë
 (2);
+	`OLED_Flﬂt
+(7, 50, Encoder_left, 2);
+
+54 
+Encodî_right
+ = 
+	`Encodî_Gë
+(4);
+	`OLED_Flﬂt
+(6, 50, Encoder_right, 2);
 
 56 
-	`OLED_Flﬂt
-(7, 50, 
-S≥ed
-, 2);
-
-58 
 	}
 }
 

@@ -52,7 +52,7 @@ void Load_Motor(int moto1_pwm, int moto2_pwm)
     else
         Ain1 = 0, Ain2 = 1; // 反转
     // 2.研究PWM值
-    TIM_SetCompare1(TIM1, abs(moto1_pwm));
+    PWMA = abs(moto1_pwm);
 
     // 1.研究正负号，对应正反转
     if (moto2_pwm > 0)
@@ -60,5 +60,22 @@ void Load_Motor(int moto1_pwm, int moto2_pwm)
     else
         Bin1 = 0, Bin2 = 1;
     // 2.研究PWM值
-    TIM_SetCompare4(TIM1, abs(moto2_pwm));
+    PWMB = abs(moto2_pwm);
+}
+
+/*
+    * 函数功能：电机异常关闭
+    * 参    数：angle voltage
+    * 返 回 值：无
+*/
+void Turn_Off(float angle)
+{
+		if(angle<-FallAngle||angle>FallAngle)	 //电池电压低于3.6V关闭电机
+		{	                                   //===倾角大于40度关闭电机																			 
+				Moto1=0;
+				Moto2=0;
+				flag_fall=1;
+		}		
+		else 				
+				flag_fall=0;
 }

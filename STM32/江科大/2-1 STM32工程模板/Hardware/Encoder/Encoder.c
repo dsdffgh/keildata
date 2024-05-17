@@ -14,8 +14,8 @@ void Encoder_TIM2_Init(void)
 
 	/*GPIO初始化*/
 	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure); // 将PA6和PA7引脚初始化为上拉输入
 
@@ -23,8 +23,8 @@ void Encoder_TIM2_Init(void)
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;				// 定义结构体变量
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;		// 时钟分频，选择不分频，此参数用于配置滤波器时钟，不影响时基单元功能
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up; // 计数器模式，选择向上计数
-	TIM_TimeBaseInitStructure.TIM_Period = 65536 - 1;				// 计数周期，即ARR的值
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 1 - 1;				// 预分频器，即PSC的值
+	TIM_TimeBaseInitStructure.TIM_Period = ENCODER_TIM_PERIOD;				// 计数周期，即ARR的值
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 0x0;				// 预分频器，即PSC的值
 	TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;			// 重复计数器，高级定时器才会用到
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);				// 将结构体变量交给TIM_TimeBaseInit，配置TIM2的时基单元
 
@@ -86,14 +86,14 @@ void Encoder_TIM4_Init(void)
 {
 	/*开启时钟*/
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);  // 开启TIM4的时钟
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); // 开启GPIOA的时钟
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); // 开启GPIOB的时钟
 
 	/*GPIO初始化*/
 	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure); // 将PA6和PA7引脚初始化为上拉输入
+	GPIO_Init(GPIOB, &GPIO_InitStructure); // 
 
 	/*时基单元初始化*/
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;				// 定义结构体变量

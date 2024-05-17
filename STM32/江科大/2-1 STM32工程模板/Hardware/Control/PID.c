@@ -5,7 +5,7 @@
 #define Limit_Uppper 10000
 #define Limit_Lower -10000
 
-float Med_Angle = -1.00; // 机械中值，能使得小车真正平衡住的角度
+float Med_Angle = 3.932846655791188; // 机械中值，能使得小车真正平衡住的角度
 float Target_Speed = 0;  // 期望速度。---二次开发接口，用于控制小车前进后退及其速度。
 float
     Vertical_Kp = 200,
@@ -32,10 +32,10 @@ void EXTI9_5_IRQHandler(void)
 
       /* 读取角度 */
       mpu_dmp_get_data(&Pitch, &Roll, &Yaw);
-//      MPU6050_GETGyroscope(&gyro_X, &gyro_Y, &gyro_Z);  // 读取角速度
-//      MPU6050_GETAccelerometer(&acc_X, &acc_Y, &acc_Z); // 读取加速度
-			MPU_Get_Gyroscope(&gyro_X, &gyro_Y, &gyro_Z);
-			MPU_Get_Accelerometer(&acc_X, &acc_Y, &acc_Z);
+      // MPU6050_GETGyroscope(&gyro_X, &gyro_Y, &gyro_Z);  // 读取角速度
+      // MPU6050_GETAccelerometer(&acc_X, &acc_Y, &acc_Z); // 读取加速度
+      MPU_Get_Gyroscope(&gyro_X, &gyro_Y, &gyro_Z);
+      MPU_Get_Accelerometer(&acc_X, &acc_Y, &acc_Z);
 
       /* 进入闭环控制 ，计算控制输出量 */
       Velocity_out = VelocityPidCalc(Target_Speed, Encoder_left + Encoder_right);
@@ -46,6 +46,7 @@ void EXTI9_5_IRQHandler(void)
       Moto1 = PWM_out + Turn_out;
       Moto2 = PWM_out - Turn_out;
       Limit_Motor(&Moto1, &Moto2);
+      //Turn_off();
       Load_Motor(Moto1, Moto2); // 电机控制
     }
   }
@@ -78,7 +79,7 @@ int VelocityPidCalc(const int Target, const int realSpeed)
   static int Encoder_error_last;
   static int Encoder_error_sum;
   static int Encoder_err_tmp;
-	Encoder_err_tmp	= (realSpeed - Target);
+  Encoder_err_tmp = (realSpeed - Target);
 
   // 低通滤波
   Encoder_error = LowPass_exper * Encoder_error_last + (1 - LowPass_exper) * Encoder_err_tmp; // 使得波形更加平滑，滤除高频干扰，放置速度突变
