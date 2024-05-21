@@ -1,4 +1,4 @@
-cscope 15 d:\ProgramData\OneDrive - st.xatu.edu.cn\Œƒµµ\Workspace\keildata\STM32\Ω≠ø∆¥Û\2-1 STM32π§≥Ãƒ£∞Â"               0000964227
+cscope 15 d:\ProgramData\OneDrive - st.xatu.edu.cn\Œƒµµ\Workspace\keildata\STM32\Ω≠ø∆¥Û\2-1 STM32π§≥Ãƒ£∞Â"               0000964343
 	@Hardware/Control/PID.c
 
 1 
@@ -152985,7 +152985,7 @@ uöt8_t
 	`OLED_Inô
 ();
 
-21 
+20 
 	`NVIC_C⁄figuøti⁄
 ();
 
@@ -153014,12 +153014,12 @@ uöt8_t
 ();
 
 29 
-	`MŸ‹_Inô
-();
-
-30 
 	`PWM_Inô
 (0, 7200);
+
+30 
+	`MŸ‹_Inô
+();
 
 31 
 	`dñay_ms
@@ -153051,23 +153051,21 @@ acc_Y
 acc_Z
 );
 
-47 
-	`mpu_dmp_gë_d©a
-(&
-Pôch
-, &
-Rﬁl
-, &
-Yaw
-);
+43 
+	`OLED_ShowSåög
+(7, 1, "gyro", 4); OLED_ShowString(70, 1, "acc", 3);
 
-51 
-	`¥ötf
-("%.2f\n",
-Pôch
-);
+44 
+	`OLED_Flﬂt
+(2, 1, 
+gyro_X
+, 1); OLED_Flﬂt(3, 1, 
+gyro_Y
+, 1); OLED_Flﬂt(4, 1, 
+gyro_Z
+, 1);
 
-53 
+52 
 Encodî_À·
  = 
 	`Encodî_Gë
@@ -153075,13 +153073,17 @@ Encodî_À·
 	`OLED_Flﬂt
 (7, 50, Encoder_left, 2);
 
-54 
+53 
 Encodî_right
  = 
 	`Encodî_Gë
 (4);
 	`OLED_Flﬂt
 (6, 50, Encoder_right, 2);
+
+54 
+	`Lﬂd_MŸ‹
+(20,20);
 
 56 
 	}

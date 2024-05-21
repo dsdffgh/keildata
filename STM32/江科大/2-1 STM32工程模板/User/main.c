@@ -16,14 +16,14 @@ int main(void)
 {
 	/*模块初始化*/
 	delay_init();
-	//OLED_Init(); // OLED初始化
-	// Timer3_Init(100,1);	 // 定时中断初始化
+	OLED_Init(); // OLED初始化
 	NVIC_Configuration();
-	//OLED_Clear(); // OLED清屏
-	//MPU_Init(); // 陀螺仪软件i2c初始化
+	//Timer3_Init(100,1);	 // 定时中断初始化
+	OLED_Clear(); // OLED清屏
+	MPU_Init(); // 陀螺仪软件i2c初始化
 	// MPU6050_Init();		 // 陀螺仪硬件i2c初始化
-	//mpu_dmp_init(); // 陀螺仪DMP初始化
-	//MPU6050_EXTI_Init(); // 陀螺仪中断初始化
+	mpu_dmp_init(); // 陀螺仪DMP初始化
+	MPU6050_EXTI_Init(); // 陀螺仪中断初始化
 	Encoder_TIM2_Init(); // 不分频
 	Encoder_TIM4_Init(); // 不分频
 	PWM_Init(0, 7200);	 // PWM初始化, TIM1
@@ -39,9 +39,9 @@ int main(void)
 	while (1)
 	{
 		// MPU6050_GetData(&acc_X, &acc_Y, &acc_Z,&gyro_X, &gyro_Y, &gyro_Z);
-		//MPU_Get_Gyroscope(&gyro_X, &gyro_Y, &gyro_Z);		MPU_Get_Accelerometer(&acc_X, &acc_Y, &acc_Z);
-		//OLED_ShowString(7, 1, "gyro", 4); 		OLED_ShowString(70, 1, "acc", 3); 
-		//OLED_Float(2, 1, gyro_X, 1);		OLED_Float(3, 1, gyro_Y, 1);		OLED_Float(4, 1, gyro_Z, 1);
+		MPU_Get_Gyroscope(&gyro_X, &gyro_Y, &gyro_Z);		MPU_Get_Accelerometer(&acc_X, &acc_Y, &acc_Z);
+		OLED_ShowString(7, 1, "gyro", 4); 		OLED_ShowString(70, 1, "acc", 3); 
+		OLED_Float(2, 1, gyro_X, 1);		OLED_Float(3, 1, gyro_Y, 1);		OLED_Float(4, 1, gyro_Z, 1);
 		//OLED_Float(2, 66, acc_X, 1);		OLED_Float(3, 66, acc_Y, 1);		OLED_Float(4, 66, acc_Z, 1);
 		//printf("acc_x = %d\tacc_y = %d\tacc_z = %d\n",acc_X,acc_Y,acc_Z);
 		//mpu_dmp_get_data(&Pitch, &Roll, &Yaw);
@@ -49,8 +49,8 @@ int main(void)
 		//printf("Pitch = %.2f\tRoll = %.2f\tYaw = %.2f\n\n\n",Pitch, Roll, Yaw);		
 		//printf("%.2f\n",Pitch);
 		//OLED_Clear(); // OLED清屏
-		//Encoder_left = Encoder_Get(2);OLED_Float(7, 50, Encoder_left, 2);
-		//Encoder_right = Encoder_Get(4);OLED_Float(6, 50, Encoder_right, 2);
+		Encoder_left = Encoder_Get(2);OLED_Float(7, 50, Encoder_left, 2);
+		Encoder_right = Encoder_Get(4);OLED_Float(6, 50, Encoder_right, 2);
 		Load_Motor(20,20);
 	}
 }
